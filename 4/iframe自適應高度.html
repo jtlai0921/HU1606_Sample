@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>iframe自適應高度</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//修改ifarme高度
+			function resizeIframe(){
+				var myframe = document.getElementById("myframe");
+				//使用try捕捉可能的錯誤，若果發現錯誤，則不執行
+				try{
+					//取得iframe內定文件body的高度
+					var bodyHeight = myframe.contentWindow.document.body.scrollHeight;
+					//取得iframe內定文件的卷動高度，該高度有可能會高於body的高度
+					var scrollHeight 
+					= myframe.contentWindow.document.documentElement.scrollHeight;
+					//取得它們中最大的高度值
+					var myHeight = Math.max(bodyHeight, scrollHeight);
+					//為iframe設定高度
+					myframe.height =  myHeight;
+				}catch (ex){}
+			}
+			//使用定時器來定期調整iframe的實際高度
+			window.setInterval("resizeIframe()", 200);
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義框架 -->
+		<iframe id="myframe" src="iframe自適應高度_iframe.html" 
+			scrolling="no" frameborder="0" onload="this.height=100" 
+			style="border:1px solid black;"></iframe>
+	</body>
+</html>

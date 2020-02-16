@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態載入的導覽選單</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			var arr = [];	//定義資料陣列變數
+			//為選單指定資料，包括了名字和URL
+			arr[0] = [{name:'選單1',url:'#'},{name:'選單11',url:'#'}];
+			arr[1] = [{name:'選單2',url:'#'}];
+			arr[2] = [{name:'選單3',url:'#'},{name:'選單31',url:'#'},{name:'選單32',url:'#'}];
+			//在jquery的載入回調函數裡動作
+			$(function(){
+				//定義選單的html內容，以ul打頭
+				var html = '<ul class="menu clearfix">';
+				//根據陣列變數的長度，開始串聯第一級選單
+				for(var i=0;i<arr.length;i++){
+					html += '<li><a href="#">選單'+(i+1)+'</a></li>';
+				}
+				html += '</ul>';
+				//第一級選單群組合完成
+				//開始群組合二級選單
+				html += '<div class="sub_div clearfix">';
+				//使用兩次循環開始串聯第二級選單
+				for(var i=0;i<arr.length;i++){
+					var a = arr[i];
+					html += '<ul class="sub_menu">';//使用sub_menu的ul
+					for(var j=0;j<a.length;j++){
+						var item = a[j];			//得到資料
+						//拼接字元
+						html += '<li><a href="'+item['url']+'">'+item['name']+'</a></li>';
+					}
+					html += '</ul>';				//完成ul
+				}
+				html += '</div>';					//完成全部的選單html
+				$('body').append(html);				//掛接在body裡
+				//開始指定選單的功能
+				var menus = $('.menu a');		//得到選單下所有的連結
+				for(var i=0;i<menus.length;i++){//檢查這些連結
+					var m = menus[i];			//得到目前的連結
+					$(m).mouseover(function(){	//為選單連結定義onmouover事件
+						//得到目前滑鼠移入的選單項的索引
+						var index = $('.menu a').index(this);
+						$('.sub_menu').hide();	//把所有的二級選單隱藏
+						$('.sub_menu').eq(index).show();//顯示目前索引的選單項
+						//並且計算出這個選單項應該處於的定位位置
+						$('.sub_menu').eq(index).css('margin-left',(100*index)+'px');
+					});
+				}
+			});
+		</script>	
+		<style>
+			.menu{
+				list-style: none;
+				width: 300px;
+				margin: 10px auto 0;
+				padding:0;
+			}
+			.menu li{
+				float:left;
+				width:98px;
+				border:1px solid black;
+			}
+			.menu a{
+				color:black;
+				width:100%;
+			}
+			.menu a:hover{
+				background-color:pink;
+			}
+			.clearfix:after {
+				visibility: hidden;
+				display: block;
+				font-size: 0;
+				content: " ";
+				clear: both;
+				height: 0;
+			}
+			.sub_menu{
+				border:1px solid black;
+				width: 100px;
+				padding:0;
+				display: none;
+				margin:0;
+				float:left;
+			}
+			.sub_div{
+				width: 305px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		
+	</body>
+</html>

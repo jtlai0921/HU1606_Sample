@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在列印內容裡隱藏列印按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義單獨的外部列印型態 -->
+		<link href="print.css" rel="stylesheet" type="text/css" media="print"/>
+		<script type="text/javascript">				
+			function doPrint(){			//監聽列印按鈕click事件的函數
+				window.print();			//呼叫系統的列印功能
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<ul>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+			<li>目錄條</li>
+		</ul>
+		<p>
+			<input type="button" value="列印" onclick="doPrint()" class="prtBtn"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自訂錯誤型態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義一個外部型態，和引入外部css檔案效果一樣 -->
+		<style>
+			.myerr{
+				border-bottom : 1px dotted red;
+			}
+		</style>
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function save(){
+				//取得目的DOM,t1和t2
+				var t1 = document.getElementById('t1');
+				var t2 = document.getElementById('t2');
+				if(t1.value == ''){	//若果t1的值為空，則修改class
+					t1.className = 'myerr';//在js裡，用className表示標簽的class
+				}
+				if(t2.value == ''){//若果t2的值為空，則修改class
+					t1.className = 'myerr';
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<form>
+			姓名:<input type="text" name="t1" id="t1" class=""/>
+			年齡:<input type="text" name="t2" id="t2" class=""/>
+		</form>
+		<br/>
+		<input type="button" onclick="save();" value="儲存"/>
+	</body>
+</html>

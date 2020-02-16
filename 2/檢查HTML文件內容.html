@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>檢查文件樹</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//檢查文件樹
+			function getDomTree(){
+				alert(text(document.body));				//用提示框顯示樹內容
+			}
+			function text(elem){  
+				var t="";								//定義文字字串
+				//取得改節點的所有子節點
+				var elemelem = elem.childNodes;
+				//檢查所有子節點  
+				for(var i=0; i<elemelem.length;i++){  
+					//目前節點
+					var e = elemelem[i];
+					//文字、注解節點不被檢查，並判斷其是否為直接父節點
+					if(e.parentNode == elem && e.nodeType == 1){
+						t += e.tagName + ' ';				//把標簽名新增到文字內容裡
+						//循環子節點
+						if(e.childNodes.length > 0){
+							//若果子節點只有一個文字子節點，則略過
+							if(e.childNodes.length == 1){
+								var fe = e.childNodes[0];
+								if(fe.nodeType == 3)		//是否為文字子節點
+									continue;			//略過
+							}
+							t += '\n\t';					//子節點分隔符
+							t += text(e);				//遞歸還有子元素的子節點
+						}
+					}				   
+				}  
+				return t;								//傳回得到的文字  
+			}  
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義連結和按鈕 -->
+			<a id="myLink" href="#">連結</a>
+			<br/>
+			<input type="button" value="檢查文件樹" onclick="getDomTree();"/>
+		</p>
+	</body>
+</html>

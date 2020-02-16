@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓型態動起來</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義一個外部型態，和引入外部css檔案效果一樣 -->
+		<style>
+			.myclass{
+				color:blue;
+			}
+		</style>
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function changeStyle(){
+				//透過js得到文字所使用的型態表，
+				//因為只有一個，所以這裡只需要存取第一個型態表
+				var rs = document.styleSheets[0].cssRules;
+				if(!rs)//有的瀏覽器不支援cssRules，需要用rules來得到
+					document.styleSheets[0].rules;
+				//改變第一條規則的彩色型態
+				rs[0].style.color = 'pink';
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<span id="mytxt" class="myclass">測試文字</span>
+		<br/>
+		<input type="button" onclick="changeStyle();" value="改變文字的彩色"/>
+	</body>
+</html>

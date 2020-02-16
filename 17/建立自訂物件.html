@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>建立自訂物件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//最簡單的建立物件的辦法，由一對大括號括起來
+			var obj001 = {};			//使用大括號建立一個內容是空的物件
+			obj001.prop1 = 100;			//為物件加入一個屬性prop1，給予值為100
+			obj001.prop2 = function(){	//為物件加入一個方法prop2，並提供實現
+				alert('我是方法001');	//提供一個alert敘述
+			};
+			obj001.prop2();				//呼叫物件的方法
+			//使用function建立一個物件
+			function createObj002(){	//宣告一個建立物件的function，類別似於class
+				this.prop1 = 200;		//宣告一個屬性prop1
+				this.prop2 = function(){//宣告一個方法prop2
+					alert('我是方法002');//提供一個alert敘述
+				};
+			};
+			var obj002 = new createObj002();//建立一個obj002的物件
+			obj002.prop2();				//呼叫obj002物件的prop2方法
+			//使用new object()的形式建立物件
+			var obj003 = new Object();
+			obj003.prop1 = 300;			//設定屬性prop1
+			obj003.prop2 = function(){	//為物件加入一個方法prop3，並提供實現
+				alert('我是方法003');	//提供一個alert敘述
+			};
+			obj003.prop2();				//呼叫方法
+		</script>
+	</head>
+	<body style="text-align:center">		
+	</body>
+</html>

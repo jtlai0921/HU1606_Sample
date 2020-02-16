@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用Dojo動態指定按鈕的click事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js"></script>
+		<script type="text/javascript">
+			//利用dojo的網頁載入完成回調函數
+			dojo.addOnLoad(function () {
+				//取得按鈕的DOM
+				var btn = dojo.byId('btn');
+				//使用connect函數處理事件，參數分別為DOM，事件和回調
+				dojo.connect(btn, 'onclick', function(){
+					//回調函數的實際實現
+					alert('按鈕被click了');
+				});
+			});
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<input value="按鈕" id="btn" type="button"/>
+	</body>
+</html>

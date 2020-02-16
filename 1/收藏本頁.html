@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收藏本頁</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//收藏本頁
+			function setFavorite(){
+				//利用external的AddFavorite加入收藏，直接利用位址欄的位址和標題欄的標題
+				window.external.AddFavorite(location.href.,document.title);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 收藏本頁的連結 -->
+		<p><a href='#' onClick="setFavorite();">收藏本頁</a></p>
+	</body>
+</html>

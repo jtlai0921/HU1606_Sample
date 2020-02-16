@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>eval函數大行其道</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//動態執行js程式碼的函數
+			function exejs(){ 
+				//取得輸入框的DOM元素
+				var jscode = document.getElementById("jscode");
+				var rst = document.getElementById("rst");
+				//直接利用eval函數把程式碼的執行結果列印到rst文字框裡
+				rst.value = eval(jscode.value);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>請輸入你要執行的js程式碼：</h2>
+		<p>
+			<!-- js程式碼的輸入框 -->
+			程式碼：<input type="text" name="jscode" value="" id="jscode"/>
+		</p>
+		<p>
+			<!-- 執行結果的輸入框 -->
+			結果：<input type="text" name="rst" value="" id="rst"/>
+		</p>
+		<p>
+			<!-- 執行程式碼的按鈕 -->
+			<input type="button" value="執行" onclick="exejs();"/>
+		</p>
+	</body>
+</html>

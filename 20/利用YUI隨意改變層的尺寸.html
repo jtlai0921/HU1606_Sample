@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI隨意改變層的尺寸</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use('resize', function(Y) {
+				//建立一個可以改變尺寸的物件
+				new Y.Resize({
+					node: '#demo'//指定可以改變尺寸的DOM
+				});   
+			});
+		</script>	
+		<style>
+			#demo {
+				height: 100px;
+				width: 100px;
+				border: 1px solid black;
+				background-color: #8DD5E7;
+				position: relative;
+				padding: 1em;
+				margin: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">請隨便改變我尺寸</div>
+	</body>
+</html>

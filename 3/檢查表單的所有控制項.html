@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>檢查表單的所有控制項</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//檢查表單的所有控制項
+			function getValues(){
+				var f = document.forms[0];			//取得表單DOM
+				var elements = f.elements;		//取得所有的控制項陣列
+				var str = '';						//拼接字串
+				//循環檢查
+				for(var i=0; i<elements.length; i++){
+					var e = elements[i];			//目前的控制項
+					str += e.value;				//拼接控制項的值
+					str += '\n';					//拼接分隔符
+				}
+				alert(str);						//用提示框展示結果
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義表單 -->
+		<form>			
+			文字框：<input type="text" name="myText"/>
+			<br/>
+			單選框：<input type="radio" name="myRadio" value="1"/>
+			<input type="radio" name="myRadio" value="2"/>
+			<br/>
+			下拉清單：
+			<select name="mySelect">
+				<option value="">==請選取==</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+			<br/>
+			<input type="button" value="得到所有控制項的值" onclick="getValues()"/>
+		</form>
+	</body>
+</html>

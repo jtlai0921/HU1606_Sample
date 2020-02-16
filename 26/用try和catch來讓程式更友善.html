@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用try和catch來讓程式更友善</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//進行計算
+			function calc(){ 
+				try{
+					//取得輸入框的DOM元素
+					var a1 = document.getElementById("a1").value;
+					var a2 = document.getElementById("a2").value;
+					var rst = document.getElementById("rst");
+					var f1 = parseInt(a1);			//被除數
+					var f2 = parseInt(a2);			//除數
+					var f = f1 / f2;				//進行除法計算
+					rst.value = f;					//把結果展示到輸入框裡
+				}catch(e){//計算過程發生例外，把例外情況列印到結果輸入框裡
+					rst.value = '發生錯誤'+e+'，請檢查資料是否正確';
+				}				
+			}	
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>請輸入要計算的數字：</h2>
+		<p>
+			<!-- 進行計算的數字的輸入框 -->
+			<input type="text" name="a1" value="" id="a1"/>
+			/
+			<input type="text" name="a2" value="" id="a2"/>
+		</p>
+		<p>
+			<!-- 執行結果的輸入框 -->
+			計算的結果：<input type="text" name="rst" value="" id="rst"/>
+		</p>
+		<p>
+			<!-- 執行程式碼的按鈕 -->
+			<input type="button" value="執行" onclick="calc();"/>
+		</p>
+	</body>
+</html>

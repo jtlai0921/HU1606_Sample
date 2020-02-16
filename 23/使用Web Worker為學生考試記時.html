@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用Web Worker為學生考試記時</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化函數
+			function init(){
+				//判斷是否支援背景執行的worker
+				if(typeof(Worker)!="undefined"){
+					//建立一個新的Worker物件，指定背景執行的js程式碼檔案
+					var w = new Worker("worker.js");
+					w.onmessage = function(e){//當收到訊息傳回的回調
+						var min = e.data;//得到資料
+						//展示結果
+						alert('您的考試已經由去'+min+'分鍾');
+					};
+				}
+			}
+		</script>
+    </head>
+    <body onload="init()">
+		<div id="container">
+			你正在考試中。。。
+		</div> 
+    </body>
+</html>

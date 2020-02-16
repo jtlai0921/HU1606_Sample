@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>光箱效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//監聽顯示光箱層的按鈕事件
+			function showLightBox(){
+				//取得層box的DOM
+				var box = document.getElementById('box');
+				box.style.display = 'block';	//顯示層
+				h = box.offsetHeight;			//計算得到層的實際高度
+				var img = document.getElementById('pic1');//得到中心圖片的DOM
+				img.style.top = (h/2)+'px';		//把它的高度置中
+			}
+			//關閉事件的函數
+			function closeLightBox(){
+				//取得層box的DOM
+				var box = document.getElementById('box');
+				box.style.display = 'none';//隱藏層
+			}
+		</script>
+		<style>
+			#box{
+				position: absolute;
+				left:0;
+				top:0;
+				z-index: 99;
+				border: 1px solid red;
+				width:100%;
+				height:100%;
+				background-color: gray;
+				margin: 0 auto;
+				display: none;
+			}
+			#box img{
+				position: relative;				
+			}
+			#closeBtn{
+				position: absolute;	
+				top: 5px;
+				right: 5px;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<p>文字文字...</p>
+		<p>
+			<input type="button" value="show" onclick="showLightBox()"/>
+		</p>
+		<div id="box">
+			<img src="1.jpg" id="pic1"/>
+			<a href="javascript:closeLightBox();" id="closeBtn">關閉</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>帶提示訊息的輸入框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>
+		<script src="ui/jquery.ui.position.js"></script>
+		<script src="ui/jquery.ui.tooltip.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成的回調
+			$(function() {
+				$('#age').tooltip();//把輸入的title訊息作為提示內容
+			});
+		</script>
+    </head>
+    <body>
+		<label>年齡輸入框：</label><br>
+		<input id="age" title="請輸入你的年齡">
+    </body>
+</html>

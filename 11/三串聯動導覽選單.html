@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>三串聯動導覽選單</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			var arr = [];	//定義資料陣列變數
+			//為選單指定資料，包括了名字和URL
+			arr[0] = [{name:'選單1',url:'#'},{name:'選單11',url:'#'}];
+			arr[1] = [{name:'選單2',url:'#'}];
+			arr[2] = [{name:'選單3',url:'#'},{name:'選單31',url:'#'},
+				{name:'選單32',url:'#',child:[
+					{name:'選單321',url:'#'}
+				]}];			//包括了子選單
+			//在jquery的載入回調函數裡動作
+			$(function(){
+				//定義選單的html內容，以ul打頭
+				var html = '<ul class="menu clearfix">';
+				//根據陣列變數的長度，開始串聯第一級選單
+				for(var i=0;i<arr.length;i++){
+					html += '<li><a href="#">選單'+(i+1)+'</a></li>';
+				}
+				html += '</ul>';
+				//第一級選單群組合完成
+				//開始群組合二級選單
+				html += '<div class="sub_div clearfix">';
+				//使用兩次循環開始串聯第二級選單
+				for(var i=0;i<arr.length;i++){
+					var a = arr[i];					//得到目前的資料
+					html += '<ul class="sub_menu">';//拼接二級選單項
+					var sub_count = 1;				//開始計數id
+					for(var j=0;j<a.length;j++){	//檢查
+						var item = a[j];			//得到資料
+						var sub = '';				//定義拼接有子選單的class屬性
+						if(item['child'])			//若果包括了子屬性，則定義class
+							sub = 'sub sub_'+j+'_'+sub_count++;
+						//拼接動態的第二級選單的字元
+						html += '<li><a href="'+item['url']+'" class="'+sub+'" index="'+j+'">'+item['name']+'</a></li>';
+					}
+					html += '</ul>';				//完成第二級選單
+					var sub_count = 1;				//開始為三級選單的id計數
+					for(var j=0;j<a.length;j++){	//檢查第三級選單
+						var item = a[j];			//得到資料
+						if(item['child']){			//若果包括三級選單
+							var b = item['child'];	//得到子選單項的資料
+							//拼接第三層的字元
+							html += '<ul class="third_menu" id="'+'sub_'+j+'_'+sub_count+++'">';
+							//檢查第三層的資料變數
+							for(var k=0;k<b.length;k++){
+								html += '<li><a href="'+b[k]['url']+'">'+b[k]['name']+'</a></li>';
+							}
+							html += '</ul>';		//完成第三層
+						}
+					}
+				}
+				html += '</div>';					//完成全部的選單html
+				$('body').append(html);				//掛接在body裡		
+				
+				var menus = $('.menu a');		//得到選單下所有的連結
+				for(var i=0;i<menus.length;i++){//檢查這些連結
+					var m = menus[i];			//得到目前的連結
+					$(m).mouseover(function(){	//為選單連結定義onmouover事件
+						//得到目前滑鼠移入的選單項的索引
+						var index = $('.menu a').index(this);
+						$('.sub_menu').hide();	//把其他二級選單隱藏
+						$('.third_menu').hide();//三級也隱藏
+						$('.sub_menu').eq(index).show();//顯示對應的二級選單
+						//計算二級選單應該定位的位置
+						$('.sub_menu').eq(index).css('margin-left',(100*index)+'px');
+					});
+				}
+				//為包括第三級選單的二級選單定義onmouseover事件
+				$('.sub').mouseover(function(){
+					//得到它的class屬性
+					var className = $(this).attr('class');
+					//得到第三級選單的id值
+					var subId = className.split(' ')[1];
+					$('#'+subId).show();		//顯示第三級選單
+					var index = $(this).attr('index');//得到它的索引
+					//計算第三級選單顯示的座標位置
+					$('#'+subId).css('margin-top',(parseInt(index)*20)+'px');
+				});
+			});
+		</script>	
+		<style>
+			.menu{
+				list-style: none;
+				width: 500px;
+				margin: 10px auto 0;
+				padding:0;
+			}
+			.menu li{
+				float:left;
+				width:98px;
+				border:1px solid black;
+			}
+			.menu a{
+				color:black;
+				width:100%;
+			}
+			.menu a:hover{
+				background-color:pink;
+			}
+			.clearfix:after {
+				visibility: hidden;
+				display: block;
+				font-size: 0;
+				content: " ";
+				clear: both;
+				height: 0;
+			}
+			.sub_menu{
+				border:1px solid black;
+				width: 100px;
+				padding:0;
+				display: none;
+				margin:0;
+				float:left;
+			}
+			.sub_div{
+				width: 505px;
+				margin: 0 auto;
+			}
+			.third_menu{
+				display:none;
+				float: left;
+				border:1px solid black;
+				width: 100px;
+				padding:0;
+				margin:0;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		
+	</body>
+</html>

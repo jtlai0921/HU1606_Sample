@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>顯示登入的時間</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//定義時分秒資料的變數
+			var s=0;			//秒
+			var m=0;			//分
+			var h=0;			//小時
+			function init(){	//網頁load回調函數
+				window.setInterval(function(){//開始定時器
+					s++;		//把秒加一
+					if(s==60){	//若果超過60秒，則用1分鍾表示
+						s=0;	//秒置零
+						m+=1;	//分加1
+					}
+					if(m==60){	//若果分為60，則用小時表示
+						m=0;	//分置零
+						h+=1;	//時加1
+					}
+					//展示結果到網頁上
+					document.getElementById('stay_time').innerHTML
+						= "您已經登入了：<br>" + h+"時"+m+"分"+s+"秒";
+				},1000);
+			}
+		</script>
+	</head>
+	<body style="text-align:center" onload="init();">
+		<p id="stay_time"></p>
+	</body>
+</html>

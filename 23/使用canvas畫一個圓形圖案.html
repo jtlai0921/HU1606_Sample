@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用canvas畫一個圓形圖案</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//繪圖方法
+			function draw(){
+				//取得canvas的DOM物件
+				var myCanvas = document.getElementById("myCanvas");
+				//得到繪圖的上下文
+				var ctx = myCanvas.getContext("2d");
+				//設定繪圖的彩色
+				ctx.fillStyle="#FF00FF";
+				//畫出圓形圖案
+				ctx.arc(100,50,50,0,Math.PI*2,true);
+				ctx.fill();		//填充圖案
+			}
+		</script>
+		<style>
+			canvas{border:1px solid black;};
+		</style>
+	</head>
+	<body style="text-align:center">
+		<p>使用canvas畫一個圓形圖案:</p>
+		<!-- canvas標簽是HTML5新增的一個標簽，它通常來說是一個容器 -->
+		<canvas id="myCanvas" width="200" height="100">
+		對不起，您的瀏覽器不支援Canvas圖形繪畫。
+		</canvas>
+		<br/>
+		<input type="button" value="畫圓形" onclick="draw();"/>
+	</body>
+</html>

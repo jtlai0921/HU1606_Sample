@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>視訊尺寸動態修改範例</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//播放器尺寸變大的方法
+			function bigger(){
+				//取得視訊DOM元素
+				var myVideo = document.getElementById("myVideo");
+				myVideo.width = 640;	//修改寬度的值
+				myVideo.height = 480;	//修改高度的值
+			}
+			//播放器尺寸變小的方法
+			function smaller(){
+				//取得視訊DOM元素
+				var myVideo = document.getElementById("myVideo");
+				myVideo.width = 320;	//修改寬度的值
+				myVideo.height = 240;	//修改高度的值
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- HTML5新增的video標簽，用於在網頁裡內嵌可以播放的視訊 -->
+		<video width="320" height="240" controls="controls" id="myVideo">
+			<!-- 提供了兩種格式的視訊檔案，以適應不同瀏覽器對video的支援 -->
+			<source src="movie.mp4" type="video/mp4" />
+			<source src="movie.ogg" type="video/ogg" />
+			對不起，您的瀏覽器暫不支援video視訊標簽!
+		</video>
+		<br/>
+		<!-- 功能按鈕 -->
+		<input type="button" value="變大" onclick="bigger();"/>
+		<input type="button" value="變小" onclick="smaller();"/>
+	</body>
+</html>

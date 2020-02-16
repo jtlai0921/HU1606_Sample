@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>從下往上的訊息卷動特效</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function change(x){
+				var con = document.getElementById('container');
+				var w = parseInt(con.style.width);
+				var h = parseInt(con.style.height);
+				w += x;
+				h += x;
+				con.style.width = w + 'px';
+				con.style.height = h + 'px';
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<div id="container" style="width:100px;height:100px;background-color:gray;">
+			這是一個層
+		</div>
+		<input type="button" value="大一點" onclick="change(10);"/>
+		<input type="button" value="小一點" onclick="change(-10);"/>
+	</body>
+</html>

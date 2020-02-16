@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>帶伸縮功能的內容分段</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>
+		<script src="ui/jquery.ui.accordion.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成回調函數
+			$(function() {
+				//直接呼叫外掛的accordion把內容進行分段
+				$( "#my_accordion" ).accordion();
+			});
+		</script>
+    </head>
+    <body>
+		<!-- 分段內容的HTML程式碼，結構為h3標題+一個DIV -->
+		<div id="my_accordion">
+			<h3>分段標題001</h3>
+			<div>
+				<p>這是一段話</p>
+			</div>	
+			<h3>分段標題002</h3>
+			<div>
+				<p>這是一段話222</p>
+			</div>	
+			<h3>分段標題003</h3>
+			<div>
+				<p>這是一段話333</p>
+			</div>	
+		</div>
+    </body>
+</html>

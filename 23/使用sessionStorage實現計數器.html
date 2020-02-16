@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用sessionStorage實現計數器</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化函數
+			function init(){
+				//若果瀏覽器支援本機儲存
+				if(sessionStorage){
+					//判斷是否已經有numCount變數了，若果沒則設定為1
+					if(!sessionStorage.numCount)
+						sessionStorage.numCount = 1;//儲存新的numCount變數
+					else
+						sessionStorage.numCount++;//計算機自加1
+					//展示結果，顯示一個層裡
+					document.getElementById('container').innerHTML
+						= 'session計數器目前為：'+sessionStorage.numCount;
+				}
+			}
+		</script>
+    </head>
+    <body onload="init()">
+		<div id="container"></div> 
+    </body>
+</html>

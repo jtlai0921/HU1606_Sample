@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>把資料轉換成一個物件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//根據使用者的輸入，建立物件的資料
+			function buildObj(){
+				//取得新元素key和val的dom
+				var key = document.getElementById('key').value;
+				var val = document.getElementById('val').value;
+				//取得目前物件文字的內容
+				var str = document.getElementById('obj_txt').innerHTML.trim();
+				//把字元轉換成JavaScript的物件
+				var obj = str==''?{}:eval('('+str+')');
+				//使用正規表示法，若果是數字型的資料，則直接連線，否則需要加上單引號
+				if(/\d+\.?\d*/.test(val))
+					obj[key] = val;	
+				else
+					obj[key] = '\''+val+'\'';	//對val加上單引號
+				//把最新的物件的文字形式列印出來
+				document.getElementById('obj_txt').innerHTML = convertObj(obj);
+			}			
+			//把物件轉換成文字形式 ，這也是json轉換的形式
+			function convertObj(obj){
+				var str = '{';				//定義字元變數，用於串聯
+				for(var prop in obj){		//便利物件的屬性
+					//若果為物件型態，則檢查連線
+					if(typeof(obj[prop]) == 'object'){
+						str += prop+':'+convertObj(obj[prop])+',';
+					//若果是字元形式，則需要加單引號
+					}else if(typeof(obj[prop]) == 'string'){
+						str += prop+':\''+obj[prop]+'\',';
+					//其他的則直接顯示
+					}else{
+						str += prop+':'+obj[prop]+',';
+					}
+				}
+				//把最後一個逗點去掉，否則不是標准的形式
+				if(str.charAt(str.length-1) == ','){
+					str = str.substr(0,str.length-1);
+				}
+				str += '}';					//拼接最後一個大括號
+				return str;					//傳回最後的拼接結果字元
+			}
+		</script>
+	</head>
+	<body style="text-align:center">		
+		key:<input type="text" name="key" id="key"/>
+		value:<input type="text" name="val" id="val"/>		
+		<br/>
+		<input type="button" value="加入" onclick="buildObj();" />
+		<br/>
+		<p id="obj_txt"></p>
+	</body>
+</html>

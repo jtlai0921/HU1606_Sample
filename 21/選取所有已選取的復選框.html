@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>選取所有已選取的復選框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function selText(){
+				var chArr = $(':checkbox:checked');
+				var str = '選取的值內含:';
+				for(var i=0;i<chArr.length;i++){
+					str += chArr[i].value + ',';
+				}
+				alert(str);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form>
+			<input name="c1" type="checkbox" value="1"/>1,
+			<input name="c1" type="checkbox" value="2"/>2,
+			<input name="c1" type="checkbox" value="3"/>3
+			<br>
+			<input type="button" value="得到選取的值" onclick="selText();"/>
+		</form>		
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用JSON格式來儲存資料</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//定義json變數
+			var json = [];
+			function addData(){
+				var username = document.getElementById('username');//取得username的DOM
+				var age = document.getElementById('age');//取得age的DOM
+				//加入一條json的物件，由2個元素群組成：usernmae和age
+				json[json.length] = {username:username.value,age:age.value};
+				printJson();//每加入一次，則列印一次最新的結果
+			}
+			//列印json的結果到頁面上
+			function printJson(){
+				var str = '[';				//定義str，用於拼接結果
+				//循環json陣列
+				for(var i=0;i<json.length;i++){
+					//拼接username
+					str += '{username:'+json[i]['username'];
+					//拼接age
+					str += ',age:'+json[i]['age']+'}';
+					if(i != json.length - 1)//若果不是最後一個元素，則拼接逗點
+						str += ',';
+				}
+				str += ']';//結尾符
+				//把結果列印到頁面上的msg裡
+				document.getElementById('msg').innerHTML = str;
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>請輸入：</h2>
+		<p>
+			<!-- 名稱的輸入框 -->
+			名稱：<input type="text" name="username" value="" id="username"/>
+		</p>
+		<p>
+			<!-- 年齡的輸入框 -->
+			年齡：<input type="text" name="age" value="" id="age"/>
+		</p>
+		<p>
+			<!-- 執行的按鈕 -->
+			<input type="button" value="加入" onclick="addData();"/>
+		</p>
+		<p id="msg"></p>
+	</body>
+</html>

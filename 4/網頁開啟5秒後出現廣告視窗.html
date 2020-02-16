@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>子框架的互相參考</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			function alertFrames(){				//子框架的互相參考
+				var frames = window.frames;		//得到框架陣列
+				var frame1 = frames[0];			//參考到第一個框架
+				//站在frame1的角度，使用parent屬性得到父框架，這裡就是window
+				var frame2 = frame1.parent.frames[1];
+				alert(frame2.document);			//用提示框展示框架2的document
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義框架 -->
+		<iframe id="frame1"></iframe>
+		<iframe id="frame2"></iframe>
+		<br/>
+		<input type="button" value="用frame1參考frame2" onclick="alertFrames();"/>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>不同瀏覽器載入不同css檔案</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="text/css" rel="stylesheet" href="css1.css" />
+		<link type="text/css" rel="stylesheet" href="css2.css" />
+		<script type="text/javascript">
+			//body載入事件監聽函數
+			function chooseCss(){
+				//這裡我們假設ie使用css1，而其他瀏覽器使用css2
+				//若果瀏覽器為IE瀏覽器
+				if (window.navigator.userAgent.indexOf("MSIE")>=1){
+					//把的型態1禁用掉
+					document.styleSheets[1].disabled = true;		
+				}else if (window.navigator.userAgent.indexOf("Firefox")>=1){
+				//若果瀏覽器為firefox
+					//把的型態1禁用掉
+					document.styleSheets[0].disabled = true;	
+				}else{
+				//若果瀏覽器為其他，例如chrome
+					//把的型態1禁用掉
+					document.styleSheets[0].disabled = true;	
+				}				
+			}
+		</script>
+	</head>
+	<body style="text-align:center" onload="chooseCss();">
+		<span id="mytxt" class="myclass">測試文字</span>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>定義一個類別</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//用function類比一個類別出來，同時也作為建構函數
+			function MyClass(){
+				this.name;			//類別成員變數name
+				this.fun = function(){//類別的成員函數fun
+					//在成員函數裡呼叫成員變數
+					alert('my function name:' + this.name);
+				};
+			}
+			var obj = new MyClass();//使用new案例化一個類別
+			obj.name = 'abc';		//為成員變數給予值
+			obj.fun();				//呼叫成員函數
+		</script>
+	</head>
+	<body style="text-align:center">
+	</body>
+</html>

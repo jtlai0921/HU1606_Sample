@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用HTML5繪制一個SVG純量圓形</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//改變圓形半徑的函數
+			function chg(r){
+				//取得圓形的DOM
+				var cc = document.getElementById('cc');
+				cc.r.baseVal.value = r;	//重新制定半徑
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 使用SVG畫一個純量的原型 -->
+		<svg width="250" height="250" style="border:1px solid black;">
+			<circle id="cc" cx="125" cy="125" r="75" stroke="red" fill="transparent" stroke-width="5"/>
+		</svg>
+		<br><br>
+		<input type="button" value="大圓" onclick="chg(100);"/>
+		<input type="button" value="小圓" onclick="chg(50);"/>
+	</body>
+</html>

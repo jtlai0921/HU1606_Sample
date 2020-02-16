@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓圖片旋轉起來</title>
+		<meta http-equiv="Content-Type" content="textml; charset=utf-8"/>
+		<script>
+			var timer = null;	//定時器變數
+			var deg = 0;		//目前的角度
+			function goRoate(r){//改變角度的函數
+				clearInterval(timer);//清除之前的定時器
+				//取得DOM
+				var d = document.getElementById('demo');
+				timer = setInterval(function(){//開始定時器
+					if(r>0){	//順時針
+						deg++;	//角度自加1			
+					}else{		//逆時針
+						deg--;	//角度自減1
+					}
+					//改變現狀的角度
+					d.style.transform = 'rotate('+deg+'deg)';
+				},200);
+			}
+		</script>
+		<style>			
+			#demo{
+				transform: rotate(90deg);
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<img src="1.jpg" id="demo"/>
+		<input type="button" value="順時針旋轉" onclick="goRoate(1)"/>
+		<input type="button" value="逆時針旋轉" onclick="goRoate(-1)"/>
+	</body>
+</html>

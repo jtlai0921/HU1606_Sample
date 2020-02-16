@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript變數的作用範圍</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var scope = '我是全局變數';	//定義全局變數scope
+			function fun(){				//定義函數fun
+				alert(scope);			//列印scope變數的值
+				//重新定義個局部變數，名字也叫作scope
+				var scope = '我是局部變數';
+				alert(scope);			//再列印scope變數的值
+			}
+			fun();						//執行fun函數
+		</script>
+	</head>
+	<body style="text-align:center">
+	</body>
+</html>

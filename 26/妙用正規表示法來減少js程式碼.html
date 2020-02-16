@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>妙用正規表示法來減少js程式碼</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//普通的置換字元的函數
+			function replaceTxt(){ 
+				//取得輸入框的DOM元素
+				var str = document.getElementById("str").value;
+				var key = document.getElementById("key").value;
+				var rst = document.getElementById("rst");
+				while(true){			//進入置換的循環敘述
+					//是否包括自定的key字元
+					if(str.indexOf(key) > -1)
+						//使用replace函數，把包括的特定字元換成空字元
+						str = str.replace(key,'');
+					else
+						break;			//若果沒有了，則離開循環
+				}
+				rst.value = str;
+			}
+			//使用正規表示法的置換字元的函數
+			function replaceReg(){ 
+				//取得輸入框的DOM元素
+				var str = document.getElementById("str").value;
+				var key = document.getElementById("key").value;
+				var rst = document.getElementById("rst");
+				//使用正規表示法進行置換
+				rst.value = str.replace(new RegExp(key, 'g'),'');
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>請輸入字元和置換字元：</h2>
+		<p>
+			<!-- 原始字串的輸入框 -->
+			需要置換的字元：<input type="text" name="str" value="" id="str"/>
+		</p>
+		<p>
+			<!-- 置換的字串的輸入框 -->
+			去掉的字元：<input type="text" name="key" value="" id="key"/>
+		</p>
+		<p>
+			<!-- 執行結果的輸入框 -->
+			結果：<input type="text" name="rst" value="" id="rst"/>
+		</p>
+		<p>
+			<!-- 執行程式碼的按鈕 -->
+			<input type="button" value="普通置換" onclick="replaceTxt();"/>
+			<input type="button" value="正則置換" onclick="replaceReg();"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為物件延伸一個方法</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var obj = {};			//目的物件
+			//延伸函數
+			function ext(){			
+				//得到使用者需要特殊的函數的名字
+				var funName = document.getElementById('text').value;
+				//得到函數的程式碼字元
+				var funCon = document.getElementById('text2').value;
+				//動態指定函數及其實現
+				obj[funName] = function(){
+					//使用eval函數來延伸函數的實現程式碼
+					eval(funCon);
+				};
+			}
+			//執行函數
+			function fun(){
+				//取得函數名
+				var funName = document.getElementById('text').value;
+				obj[funName].call();//動態呼叫函數
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		方法名：
+		<input value="" type="text" id="text" /><br><br>
+		實現程式碼：
+		<input value="" type="text2" id="text2" /><br><br>
+		<input value="延伸" type="button" onclick="ext()"/>
+		<input value="呼叫" type="button" onclick="fun()"/>
+	</body>
+</html>

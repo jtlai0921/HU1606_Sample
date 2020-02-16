@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自訂提示框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>		
+		<script src="ui/jquery.ui.mouse.js"></script>
+		<script src="ui/jquery.ui.draggable.js"></script>
+		<script src="ui/jquery.ui.position.js"></script>
+		<script src="ui/jquery.ui.resizable.js"></script>
+		<script src="ui/jquery.ui.button.js"></script>
+		<script src="ui/jquery.ui.dialog.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//出現交談視窗的函數
+			function openDialog() {
+				$( "#my_dialog" ).dialog();		//開啟交談視窗
+			}
+		</script>
+    </head>
+    <body>
+		<label>請點擊：</label>
+		<input type="button" id="btn" value="提示框" onclick="openDialog()"/>
+		<div id="my_dialog" title="我的提示框" style="display:none;">
+			<p>這是我自訂的提示框喲</p>
+		</div>
+    </body>
+</html>

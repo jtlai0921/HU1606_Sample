@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>批次為所有的表單控制項加一個說明</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//批次為所有的表單控制項加一個說明
+			function batchComment(){
+				var f = document.forms[0];			//取得表單DOM
+				var children = f.childNodes;		//取得表單的所有子元素
+				var newArr = [];					//定義新的元質數群組
+				var j = 0;						//為新元質數群組定義索引
+				//循環檢查子元素
+				for(var i=0; i<children.length; i++){
+					var e = children[i];			//目前子元素
+					newArr[j++] = e;			//新增到新陣列裡
+					//判斷是否為控制項
+					if(e.tagName == 'INPUT' || e.tagName == 'SELECT'){
+						//加入一個文字說明的節點
+						var text = document.createTextNode(" 此項必填");
+						newArr[j++] = text;		//為新陣列加入節點
+					}
+				}
+				f.innerHTML = '';				//清理現有的表單內容
+				//批次加上說明
+				for(var i=0; i<newArr.length; i++){
+					f.appendChild(newArr[i]);		/把老的元素和說明節點加入form
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義表單 -->
+		<form>			
+			文字框：<input type="text" name="myText"/>
+			<br/>
+			單選框：<input type="radio" name="myRadio" value="1"/>
+			<input type="radio" name="myRadio" value="2"/>
+			<br/>
+			下拉清單：
+			<select name="mySelect">
+				<option value="">==請選取==</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+			<br/>
+			<input type="button" value="批次說明" onclick="batchComment()"/>
+		</form>
+	</body>
+</html>

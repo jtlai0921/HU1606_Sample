@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用手機的GPS定位使用者所在的城市</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript" language="javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			//起始化函數
+			function init(){
+				//判斷google的城市是否可用
+				if( google.loader.ClientLocation.address.city) {
+					//透過google的api取得城市訊息
+					var locationCity = google.loader.ClientLocation.address.city;
+					alert(locationCity);//展示城市的訊息結果
+				}
+			}
+		</script>
+    </head>
+    <body onload="init();">
+    </body>
+</html>

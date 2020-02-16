@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>隨意改變框架的大團隊合</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			function moreWidth(){				//變寬
+				//取得頂部網頁的frameset物件
+				var frameSet = top.document.getElementById("left_right");
+				frameSet.cols = "300,*";			//修改關於列之間的寬度組態
+			}
+			//變窄
+			function lessWidth(){
+				//取得頂部網頁的frameset物件
+				var frameSet = top.document.getElementById("left_right");
+				frameSet.cols = "100,*";			//修改關於列之間的寬度組態
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 定義標題  -->
+		<h2>右邊frame</h2>
+		<input type="button" value="變寬" onclick="moreWidth();"/>
+		<input type="button" value="變窄" onclick="lessWidth();"/>
+	</body>
+</html>

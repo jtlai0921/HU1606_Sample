@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為string型態的變數延伸一個replaceAll方法</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//按鈕的click事件監聽函數
+			function startReplace(){
+				var mytxt = document.getElementById('mytxt').value;
+				var s1 = document.getElementById('s1').value;
+				var s2 = document.getElementById('s2').value;
+				var str = mytxt.replaceAll(s1,s2);
+				alert('置換以後的字元為：' + str);
+			}
+			String.prototype.replaceAll = function(src,tgt){
+				return this.replace(new RegExp(src,'ig'),tgt);
+			};				
+		</script>
+	</head>
+	<body style="text-align:center">
+		源字元：<input type="text" name="mytxt" id="mytxt"/><br><br>
+		置換字元：<input type="text" name="s1" id="s1"/><br><br>
+		目的字元：<input type="text" name="s2" id="s2"/>
+		<br/><br/>
+		<input type="button" value="置換" onclick="startReplace()"/>
+	</body>
+</html>

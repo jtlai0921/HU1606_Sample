@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>倒計時效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function start(){				
+				setInterval(function(){
+					var now = new Date();
+					var end = new Date(now.getYear() + 1 + 1900,0,1);
+					var time = end.getTime() - now.getTime();
+					var str = getTimeTxt(time);
+					document.getElementById('left').innerHTML = '距離明年年元旦還剩:' + str;
+				},1000);				
+			}
+			function getTimeTxt(time){
+				time /= 1000;
+				var days = time / (24*60*60);
+				var hour = time % (24*60*60) / (60*60);
+				var min = time % (24*60*60) % (60*60) / 60;
+				var sec = time % (24*60*60) % (60*60) % 60;
+				var str = '';
+				if(days > 0)
+					str += Math.floor(days)+'天';
+				if(hour > 0)
+					str +=  Math.floor(hour)+'時';
+				if(min > 0)
+					str +=  Math.floor(min)+'分';
+				str +=  Math.floor(sec)+'秒';
+				return str;
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<p>			
+			<input type="button" value="進入倒計時" onclick="start();"/>
+		</p>
+		<h2 id="left"></h2>		
+	</body>
+</html>

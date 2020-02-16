@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>禁用滑鼠右鍵</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//為文件的滑鼠按下事件定義回調
+			document.onmousedown = function(event){
+				//判斷事件的值是否為滑鼠右鍵
+				if (event.button == 2){
+					alert('禁用滑鼠右鍵!'); 	//提示使用者禁用滑鼠右鍵
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>禁用滑鼠右鍵</h2>
+	</body>
+</html>

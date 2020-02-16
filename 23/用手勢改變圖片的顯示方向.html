@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用手勢改變圖片的顯示方向</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化函數，綁定觸摸螢幕事件
+            function init() {
+				var div = document.getElementById("div");
+				div.ongesturechange = function(e){
+					//rotation代表手勢的旋轉，[0<=x<=360]，正值順時針旋轉，負值逆時針
+					var rot = e.rotation;
+					//取得圖片的dom
+					var img = document.getElementsByTagName('img')[0];
+					if(rot>0){
+						img.src = "./2.jpg";	//若果順時針則用2jpg
+					}else if(rot<0){
+						img.src = "./1.jpg";	//若果逆時針則用1jpg
+					}
+				};
+			}
+		</script>
+		<style>
+			div{
+				border:2px solid red; 
+				color:red;
+				margin: 10px auto;
+				padding: 20px;
+				text-align: center;
+			}
+		</style>
+    </head>
+    <body onload="init();">
+        <div id="div">
+			<img src="1.jpg" width="500" height="500"/>
+		</div>
+    </body>
+</html>

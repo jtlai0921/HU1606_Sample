@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>存取元素中style屬性的CSS型態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function showStyle(){
+				//取得目的DOM
+				var mytxt = document.getElementById('mytxt');
+				alert(mytxt.style.color);//展示目的style的彩色
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<span id="mytxt" style="color:red;">測試文字</span>
+		<br/>
+		<input type="button" onclick="showStyle();" value="檢視文字的彩色"/>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>算出兩個時間之間的時間差</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//計算時差的函數
+			function start(){	
+				var time1 = document.getElementById('time1').value;
+				var time2 = document.getElementById('time2').value;
+				var t1 = parseTime(time1);
+				var t2 = parseTime(time2);
+				var span = t1.getTime() - t2.getTime();
+				span = Math.abs(span / 1000);
+				alert('兩個時間相差'+span+'秒');
+			}
+			function parseTime(str){
+				var date = str.split(' ')[0];
+				var darr = date.split('-');
+				var time = str.split(' ')[1];
+				var tarr = time.split(':');
+				var y = parseInt(darr[0]);
+				var m = parseInt(darr[1]);
+				var d = parseInt(darr[2]);
+				var h = parseInt(tarr[0]);
+				var mm = parseInt(tarr[1]);
+				var s = parseInt(tarr[2]);
+				return new Date(y,m,d,h,mm,s);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<p>
+			<label>第一個時間:</label>
+			<input type="text" name="time1" id="time1"/><br>
+			<label>第二個時間:</label>
+			<input type="text" name="time2" id="time2"/><br>
+			<label>格式樣本：(2013-02-21 23:12:20)</label>
+			<input type="button" value="計算" onclick="start();"/>
+		</p>
+	</body>
+</html>

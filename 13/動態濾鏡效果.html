@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態濾鏡效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義一個外部型態，和引入外部css檔案效果一樣 -->
+		<style>
+			.myclass{
+				color:white;
+				background-color:black;
+				padding:5px;
+			}
+		</style>
+		<script type="text/javascript">
+			var timer = null;
+			//按鈕的click事件監聽函數
+			function timeHide(){				
+				//取得目的DOM
+				var mytxt = document.getElementById('mytxt');
+				if(mytxt.style.opacity == '')	//若果目的的opacity為預設
+					mytxt.style.opacity = 1;	//則設定為1，表示完全顯示
+				timer = setInterval(function(){	//開始一個timer定時器
+					if(mytxt.style.opacity>0){	//若果大於0，則一直自減1
+						//每次少0.1的透明度
+						mytxt.style.opacity = mytxt.style.opacity-0.1;
+					}
+					if(mytxt.style.opacity == 0)//當完全隱藏以後，則取消定時器
+						window.clearInterval(timer);//取消定時器
+				},200);							//定時器的間隔為200毫秒
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<span id="mytxt" class="myclass">測試文字</span>
+		<br/><br/>
+		<input type="button" onclick="timeHide();" value="漸隱"/>
+	</body>
+</html>

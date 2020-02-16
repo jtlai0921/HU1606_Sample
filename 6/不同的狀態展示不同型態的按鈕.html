@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>不同的狀態展示不同型態的按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			var currStatus = '標準';			//目前的狀態
+			var myTimer = null;				//定時器
+			var mySec = 0;					//定時還剩下的秒
+			//修改按鈕為標準狀態
+			function normalStatus(){
+				//取得到目的按鈕的DOM
+				var myBtn = document.getElementById('myBtn');
+				myBtn.disabled = false;		//還原可用狀態
+				window.clearInterval(myTimer);//取消定時器
+				currStatus = '標準';			//設定標準狀態顯示值
+				showStatus();				//顯示目前狀態
+			}
+			//修改按鈕為不可用狀態
+			function disableStatus(){
+				//取得到目的按鈕的DOM
+				var myBtn = document.getElementById('myBtn');
+				myBtn.disabled = true;		//設定不可用為true
+				window.clearInterval(myTimer);//取消定時器
+				currStatus = '不可用';		//設定不可用狀態顯示值
+				showStatus();				//顯示目前狀態
+			}
+			//修改按鈕為開始定時10秒以後可用的狀態
+			function timerStatus(){
+				//取得到目的按鈕的DOM
+				var myBtn = document.getElementById('myBtn');
+				myBtn.disabled = true;		//設定不可用為true
+				window.clearInterval(myTimer);//取消定時器
+				mySec = 10;				//開始10秒倒計時
+				myTimer = window.setInterval(function(){
+					if(mySec == 0){			//若果倒計時完了，則還原按鈕狀態
+						normalStatus();		//還原到標準狀態
+					}else{
+						mySec--;			//讓倒計時秒數自減
+						//設定倒計時狀態顯示值
+						currStatus = '倒計時中('+mySec+')';
+						showStatus();		//顯示目前狀態
+					}
+				}, 1000);
+			}
+			//顯示目前狀態
+			function showStatus(){
+				//取得到標題的DOM
+				var h2 = document.getElementsByTagName("h2")[0];
+				//設定標題為目前的狀態
+				h2.innerHTML = '目前的狀態：' + currStatus; 
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義按鈕 -->
+		<h2>目前的狀態：</h2>
+		<input type="button" value="標準狀態" id="myBtn1" onclick="normalStatus()"/>
+		<input type="button" value="不可用狀態" id="myBtn2" onclick="disableStatus()"/>
+		<input type="button" value="開始倒計時狀態" id="myBtn3" onclick="timerStatus()"/>
+		<br /><br />
+		<input type="button" value="一個按鈕" id="myBtn"/>
+	</body>
+</html>

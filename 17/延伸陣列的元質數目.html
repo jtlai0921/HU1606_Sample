@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>延伸陣列的元質數目</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//建立一個長度為5的陣列
+			var arr = new Array(5);
+			arr[1] = 10;				//為索引為1的位置給予值
+			alert('現在的陣列的長度是：' + arr.length);//長度此時為5，這是建立時特殊的	
+			arr[5] = 20;				//新增一個元素，索引為5，也就是第六個元素
+			alert('現在的陣列的長度是：' + arr.length);//長度此時為6，已經延伸到了6	
+			arr[10] = 30;				//新增了5個元素，只為第11個元素給予值
+			alert('現在的陣列的長度是：' + arr.length);//長度此時為11，已經延伸到了11	
+		</script>
+	</head>
+	<body style="text-align:center">		
+	</body>
+</html>

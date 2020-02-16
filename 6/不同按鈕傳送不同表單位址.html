@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>不同的按鈕傳送不同的表單位址</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//傳送表單
+			function submitForm(btn){
+				var btnId = btn.id;			//取得點選按鈕的id
+				var f = document.forms[0]		//目前的表單
+				if(btnId == 'myBtn1'){			//是否是第一個按鈕
+					f.action = 'url1.html';		//修改action位址
+				}else if(btnId == 'myBtn2'){		//若果是第二個按鈕
+					f.action = 'url2.html';		//修改action位址
+				}
+				f.submit();					//傳送表單
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義表單，包括2個按鈕 -->
+		<form action="" method="post" style="display:block; width: 200px; height: 200px; border: 1px solid black;">
+			<br/><br/><br/>
+			<input type="button" value="傳送按鈕一" id="myBtn1" 
+				onclick="submitForm(this);"/>
+			<br/>
+			<input type="button" value="傳送按鈕二" id="myBtn2" 
+				onclick="submitForm(this);"/>
+		</form>
+	</body>
+</html>

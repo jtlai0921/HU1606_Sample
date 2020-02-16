@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>起始化表單裡的所有控制項的值到最初狀態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化表單裡的所有控制項的值到最初狀態
+			function init(){
+				var f = document.forms[0];		//取得表單DOM
+				f.reset();					//使用reset()函數
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義表單 -->
+		<form>			
+			文字框：<input type="text" name="myText"/>
+			<br/>
+			單選框：<input type="radio" name="myRadio" value="1"/>
+			<input type="radio" name="myRadio" value="2"/>
+			<br/>
+			下拉清單：
+			<select name="mySelect">
+				<option value="">==請選取==</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+			<br/>
+			<input type="button" value="起始化" onclick="init()"/>
+		</form>
+	</body>
+</html>

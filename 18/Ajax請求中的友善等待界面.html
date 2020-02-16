@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajax請求中的友善等待界面</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var client;				//定義XMLHttpRequest物件，也可以叫ajax用戶端
+			//button的click事件回調函數
+			function sendAjax(){
+				// 判斷是否支援ActiveX控制項,老版本的IE瀏覽器就需要使用ActiveXObject來建立
+				if(window.ActiveXObject){ 
+					// 透過案例化ActiveXObject的一個新案例來建立XMLHTTPRequest物件
+					client = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				// 其他的大多數瀏覽器都支援本機javascript物件
+				else if(window.XMLHttpRequest){ 
+					// 建立XMLHTTPRequest的一個案例（本機javascript物件）
+					client = new XMLHttpRequest();
+				}else{
+					alert('建立ajax用戶端失敗，您的瀏覽器不支援該服務');
+				}
+				if(client){				//若果建立client成功以後
+					var method = document.getElementById("the_method").value;
+					var params = document.getElementById("params").value;
+					//設定ajax開啟以後，建立連線的模式和目的檔案，以及是否為異步模式
+					if(method == 'POST'){
+						//用POST方法，參數可以透過send方法的參數寫到請求的內容流中去
+						client.open(method,"test001.txt",true);
+						client.send(params);		//呼叫send函數，把參數寫的請求內容中
+					}else if(method == 'GET'){
+						//用GET請求方法，參數就只能放在URL的後邊，這種模式受到URL長度限制
+						client.open(method, "test001.txt?" + params,true);
+						client.send();
+					}
+					client.onreadystatechange = myCallBack;
+				}
+			}
+			//自訂回調函數
+			function myCallBack(){
+				//若果請求的response標準傳回，並且http狀態為200標準的
+				if (client.readyState==4 && client.status==200){
+					alert("ajax請求的結果是：" + client.responseText);
+					//在請求完成之後，隱藏請求進行中的提示
+					document.getElementById('loading').style.display = 'none';
+				}else{
+					//在請求完成之前，顯示請求進行中的提示
+					document.getElementById('loading').style.display = 'block';
+				}
+			}
+		</script>
+		<style>
+			/*loading的型態*/
+			#loading{
+				border:1px solid black;
+				background-color:yellow;
+				display:none;
+				height:25px;
+				width:100px;
+				margin:5px auto;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">	
+		<label>請求方法：</label>
+		<select id="the_method">
+			<option value="GET">GET</option>
+			<option value="POST">POST</option>
+		</select>
+		<br/>
+		<label>請求內容：</label>
+		<input type="text" id="params" name="params"/>
+		<br/>
+		<input type="button" value="Send" onclick="sendAjax();"/>
+		<br/>
+		<span id="loading">Loading....</span>
+	</body>
+</html>

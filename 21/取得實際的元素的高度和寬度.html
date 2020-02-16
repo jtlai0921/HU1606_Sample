@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>取得實際的元素的高度和寬度</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function chStyle(){
+				var w = $('p').width();
+				var h = $('p').height();
+				alert('寬度是：' + w + ',高度是：' + h);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form>
+			<p>asdfghjkl</p>
+			<br>
+			<input type="button" value="改變型態" onclick="chStyle();"/>
+		</form>		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>測試是否支援滑動事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+            //網頁載入的回調
+            function init() {
+                try {			//捕捉無法預知的例外
+					//動畫建立一種觸摸螢幕事件，這是只有觸摸螢幕功能手機才有的
+                    document.createEvent("TouchEvent");
+                    alert("支援Touch事件！");//展示可以觸摸螢幕的結果
+                }
+                catch (e) {		//捕捉到例外
+					//提示使用者你的裝置不支援觸摸螢幕
+                    alert("不支援Touch事件！" + e.message);
+                }
+            }
+		</script>
+		<style>
+			div{
+				border:2px solid red; 
+				color:red;
+			}
+		</style>
+    </head>
+    <body onload="init();">
+        <h2>測試是否支援滑動事件</h2>
+        <div id="result">未觸發事件！</div>
+        <ul>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+		</ul>
+    </body>
+</html>

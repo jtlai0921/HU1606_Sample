@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI實現圖片的卷動延遲載入</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use("imageloader", function(Y) {
+				//建立一個圖片延遲載入的物件
+				var scrollGroup = new Y.ImgLoadGroup();
+				//觸發器設定為視窗的卷動條
+				scrollGroup.addTrigger(window, 'scroll');
+				//為延遲載入物件，登錄需要載入的圖片的id，位址等訊息
+				scrollGroup.registerImage({ 
+					domId: 'demo', 		//id
+					srcUrl: '1.jpg', 	//url
+					isPng: false, 		//是否為PNG
+					setVisible: true });//是否可見
+			});
+		</script>	
+	</head>
+	<body>
+		<h2>請往下卷動以秀圖片</h2>
+		<br><br><br><br><br><br>
+		<img id='demo' style='visibility:hidden;' />
+	</body>
+</html>

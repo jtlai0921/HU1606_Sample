@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>延遲載入圖片</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function init(){	
+				setTimeout('checkHeight()',100);
+			}
+			function checkHeight(){
+				var pic = document.getElementById('pic');
+				var sTop = document.documentElement.scrollTop;
+				var cHeight = document.documentElement.clientHeight;
+				var top = pic.offsetTop;
+				if(sTop + cHeight < top){
+					setTimeout('checkHeight()',100);
+				}else{
+					pic.src = pic.attributes['lazy_src'].value;
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="init()">
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<img lazy_src="1.jpg" src="" width="150" height="100" id="pic"/>
+	</body>
+</html>

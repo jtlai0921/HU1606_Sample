@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>根據name取得多個元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//取得多個DOM
+			function getDomsByName(){
+				//取得的DOMs
+				var doms = document.getElementsByName("myName");
+				var str = '';						//定義拼接字元變數
+				for(var i=0; i<doms.length; i++){
+					str += doms[i].tagName;		//拼接標簽的名字
+					str += ",";					//分隔符
+				}
+				alert("兩個DOM的標簽是：" + str);	//提示
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義有name屬性的元素 -->
+			<a name="myName" href="#">連結</a>
+			<span name="myName">文字</span>
+			<br/>
+			<input type="button" value="取得" onclick="getDomsByName();"/>
+		</p>
+	</body>
+</html>

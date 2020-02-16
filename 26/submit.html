@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>不用Ajax也可以達到不更新頁面的效果_submit</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//當頁面載入成功，就認為登入成功了
+			function showLogInfo(){
+				parent.showSucc();	//呼叫父頁面的函數
+			}
+		</script>
+	</head>
+	<body style="text-align:center" onload="showLogInfo();"></body>
+</html>

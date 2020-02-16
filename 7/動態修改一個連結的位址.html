@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態修改一個連結的位址</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">					
+			function modifyURL(){					//動態修改連結的位址
+				var myLink = document.getElementById("myLink");//取得連結的DOM
+				myLink.href = "http://www.baidu.com";	//修改連結的位址
+			}
+		</script>
+		<style>
+			a{text-decoration: none;}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義連結 -->
+		<a href="#" id="myLink">一個連結</a><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="修改連結位址" id="myBtn" onclick="modifyURL();"/>
+	</body>
+</html>

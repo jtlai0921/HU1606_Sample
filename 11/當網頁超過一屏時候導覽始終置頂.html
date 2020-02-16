@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>當網頁超過一屏時候導覽始終置頂</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化函數
+			function init(){
+				//取得頂部元素的DOM
+				var wrap = document.getElementById('wrap');
+				var scrollTop = 0;	//起始化為頂部
+				//監聽頁面卷動事件
+				window.onscroll=function(){
+					//取得目前的卷動距離
+					scrollTop =
+						document.body.scrollTop||document.documentElement.scrollTop;
+					//取得超過150像素的卷動，就把導覽選單DIV設定為固定的
+					if(scrollTop > 150){
+						wrap.className = 'the_top';//固定下來的型態
+					}else{
+						wrap.className = 'wrap';//還原原有型態
+					}
+				}
+			 }
+		</script>
+		<style type="text/css">
+		  *{ margin: 0; padding: 0; }
+		  .wrap{ width: 100%; }
+		  .hd{ width: 980px; height: 150px; margin: 0 auto; background-color: red; }
+		  .bd{ width: 980px; height: 40px; margin: 0 auto; background-color: blue; }
+		  .the_top{ position: fixed; width: 100%; }
+		  .the_top .hd{ display: none; }
+		 </style>
+	</head>
+	<body style="text-align:center" onload="init()">
+		<div id="wrap" class="wrap">
+			<div class="hd"></div>
+			<div class="bd"></div>
+		</div>
+		<br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>成為焦點時清除文字框內容</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//清楚內容
+			function clearContent(myText){
+				myText.value = '';			//把文字內容的值設為空字元
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義文字框，監聽onfocus事件 -->
+		請輸入：<input type="text" value="" onfocus="clearContent(this)"/><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="按鈕" id="myBtn" onclick="sumInput();"/>
+	</body>
+</html>

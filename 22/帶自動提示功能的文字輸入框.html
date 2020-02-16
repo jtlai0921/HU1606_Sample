@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>帶自動提示功能的文字輸入框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>		
+		<script src="ui/jquery.ui.position.js"></script>
+		<script src="ui/jquery.ui.menu.js"></script>
+		<script src="ui/jquery.ui.autocomplete.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成回調函數
+			$(function() {
+				//在本機定義自動提示的陣列，也可以透過ajax取得
+				var my_arr = [
+					"abc","123","我是一個兵","我是一個人"
+				];
+				//使用外掛提供的autocomplete函數來延伸自動提示功能
+				$( "#my_input" ).autocomplete({//組態參數
+					source: my_arr	//資料源來自於一個陣列變數
+				});
+			});
+		</script>
+    </head>
+    <body>
+		<label>請按提示輸入：</label>
+		<input id="my_input">
+    </body>
+</html>

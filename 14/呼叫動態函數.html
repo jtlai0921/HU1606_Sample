@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>呼叫動態函數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//測試函數
+			function fun(){
+				//得到文字框的值
+				var val = document.getElementById('text').value;
+				window[val].call(this);//取得到動態的函數變數，然後使用call呼叫它
+			}
+			function f1(){			//測試函數1
+				alert('我是f1');
+			}
+			function f2(){			//測試函數2
+				alert('我是f2');
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<input value="" type="text" id="text" /><br><br>
+		<input value="呼叫" type="button" onclick="fun()"/>
+	</body>
+</html>

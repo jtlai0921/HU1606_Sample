@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>仿iPhone圖片檢視器效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			var arr = ['1.jpg','2.gif'];
+			function next(){
+				var img = document.getElementById('the_img');
+				var src = img.src;
+				var findIt = false;
+				for(var i=0;i<arr.length;i++){
+					if(src.indexOf(arr[i]) > -1){
+						findIt = true;
+					}
+					if(findIt){
+						var j = i + 1;
+						if(j == arr.length)
+							j = 0;
+						img.src = arr[j];
+						break;
+					}
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<h2>點擊圖片翻下一張</h2>
+		<img src="1.jpg" id="the_img" onclick="next()" width="250" height="200"/>
+	</body>
+</html>

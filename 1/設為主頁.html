@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>將網站設為主頁</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//設為首頁
+			function setMyHomePage(){
+				//判斷是否為IE瀏覽器
+				if (document.all){
+					//設定body的style.behavior
+					document.body.style.behavior='url(#default#homepage)';
+					//設定首頁位址
+					document.body.setHomePage('http://www.myhomepage.com'); 
+				}else if (window.sidebar){ 
+					//透過FireFox特有的元件設定首頁位址
+					var thePrefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+					thePrefs.setCharPref('browser.startup.homepage','http://www.myhomepage.com');
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 設為首頁的連結 -->
+		<p><a href='#' onClick="setMyHomePage()">設為首頁</a></p>
+	</body>
+</html>

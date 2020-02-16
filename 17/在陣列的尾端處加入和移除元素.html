@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在陣列的尾端處加入和移除元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//建立一個長度為5的陣列
+			var arr = new Array(5);
+			//循環為陣列的元素給予值
+			for(var i=0; i<arr.length; i++){
+				arr[i] = i+1;	//元素的值以此為1-5
+			}
+			//加入一個元素的函數
+			function addOne(){
+				//取得新元素值的dom
+				var e = document.getElementById('elm').value;
+				arr.push(e);//向陣列的末端加入一個元素
+			}
+			//移除一個元素的函數
+			function deleteOne(){
+				arr.pop();
+			}
+			//列印陣列的值的函數
+			function printArr(){
+				var str = '';	//建立變數，拼湊列印的字元
+				//檢查陣列，湊出列印的字串
+				for(var i=0; i<arr.length; i++){
+					str += arr[i]+','
+				}
+				alert('arr=' + str);//列印陣列的值
+			}
+		</script>
+	</head>
+	<body style="text-align:center">		
+		加入的值:<input type="text" name="elm" id="elm"/>
+		<input type="button" value="加入" onclick="addOne();" />
+		<input type="button" value="移除" onclick="deleteOne();" />
+		<input type="button" value="列印arr的值" onclick="printArr();" />
+	</body>
+</html>

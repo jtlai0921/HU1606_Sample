@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>無處不在的變數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			var a,b;				//定義變數a和b
+			var c;					//定義變數c
+			function abc(){			//定義函數abc，它也是一個變數
+				a = 10;				//為變數a給予值
+				b = 'hello';		//為變數b給予值
+				c = function(){}	//變數c本身就是一個函數
+			}
+			abc();					//執行abc函數
+			alert(b);				//展示b的值
+		</script>
+	</head>
+	<body style="text-align:center">
+	</body>
+</html>

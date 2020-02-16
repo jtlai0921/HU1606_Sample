@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自訂Ajax回調函數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var client;				//定義XMLHttpRequest物件，也可以叫ajax用戶端
+			//button的click事件回調函數
+			function sendAjax(){
+				// 判斷是否支援ActiveX控制項,老版本的IE瀏覽器就需要使用ActiveXObject來建立
+				if(window.ActiveXObject){ 
+					// 透過案例化ActiveXObject的一個新案例來建立XMLHTTPRequest物件
+					client = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				// 其他的大多數瀏覽器都支援本機javascript物件
+				else if(window.XMLHttpRequest){ 
+					// 建立XMLHTTPRequest的一個案例（本機javascript物件）
+					client = new XMLHttpRequest();
+				}else{
+					alert('建立ajax用戶端失敗，您的瀏覽器不支援該服務');
+				}
+				if(client){				//若果建立client成功以後
+					//設定ajax開啟以後，建立連線的模式和目的檔案，以及是否為異步模式
+					client.open("GET","test001.txt",true);
+					client.send();		//呼叫send函數，發出ajax請求。
+					alert('ajax請求，已經發出。');
+					client.onreadystatechange = myCallBack;
+				}
+			}
+			//自訂回調函數
+			function myCallBack(){
+				alert(client.readyState);
+				//若果請求的response標準傳回，並且http狀態為200標準的
+				if (client.readyState==4 && client.status==200){
+					alert("ajax請求的結果是：" + client.responseText);
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<input type="button" value="Send" onclick="sendAjax();"/>
+	</body>
+</html>

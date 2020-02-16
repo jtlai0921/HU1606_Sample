@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>滑鼠劃過文字框改變其背景色</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//起始化函數
+			function init(){
+				//取得所有的文字DOM				
+				var texts = document.getElementsByTagName('input');
+				//檢查所有的文字框
+				for(var i=0;i<texts.length;i++){
+					var t = texts[i];//目前文字框
+					t.onmouseover = function(){//定義滑鼠移入事件
+						//修改背景色為紅色
+						this.style.backgroundColor='red';
+					}
+					t.onmouseout = function(){//定義滑鼠移出事件
+						this.style.backgroundColor='';//還原背景色
+					}					
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;" onload="init();">
+		<!-- 定義文字框 -->
+		<input type="text" />
+		<input type="text" />
+	</body>
+</html>

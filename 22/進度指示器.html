@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>進度指示器</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>		
+		<script src="ui/jquery.ui.progressbar.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成回調函數
+			$(function() {
+				//把層定義為一個進度指示器，並進行組態
+				$( "#my_progressbar" ).progressbar({
+					value: 75//百分之75的進度
+				});
+			});
+		</script>
+    </head>
+    <body>
+		<label>進度指示器：</label><br>
+		<div id="my_progressbar"></div>
+    </body>
+</html>

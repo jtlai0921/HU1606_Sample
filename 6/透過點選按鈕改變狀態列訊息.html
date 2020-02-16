@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>透過點選按鈕改變狀態列訊息</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">						
+			function modifyStatus(){			//透過點選按鈕改變狀態列訊息
+				window.status = 'hello world';	//為status設定新的值
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義按鈕 -->
+		<input type="button" value="修改狀態列" id="myBtn" onclick="modifyStatus()"/>
+	</body>
+</html>

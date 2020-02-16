@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajax得到JSON資料</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function ajax(){
+				$.getJSON("ajax_json.txt", function(json){
+				  alert("JSON Data length: " + json.length);
+				});  
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form>
+			<input type="button" value="取得ajax訊息" onclick="ajax();"/>
+		</form>		
+	</body>
+</html>

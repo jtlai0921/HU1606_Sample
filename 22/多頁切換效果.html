@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>多頁切換效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>
+		<script src="ui/jquery.ui.tabs.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成的回調
+			$(function() {
+				$( "#my_tabs" ).tabs();//直接把寫好的HTML多頁化
+			});
+		</script>
+    </head>
+    <body>
+		<div id="my_tabs">
+			<ul>
+				<li><a href="#tabs-1">第一個tab</a></li>
+				<li><a href="#tabs-2">第二個tab</a></li>
+				<li><a href="#tabs-3">第三個tab</a></li>
+			</ul>
+			<div id="tabs-1">
+				<p>這是第一個tab的內容</p>
+			</div>
+			<div id="tabs-2">
+				<p>這是第二個tab的內容</p>
+			</div>
+			<div id="tabs-3">
+				<p>這是第三個tab的內容</p>
+				<p>這是第三個tab的內容</p>
+			</div>
+		</div>
+    </body>
+</html>

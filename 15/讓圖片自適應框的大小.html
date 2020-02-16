@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓圖片自適應框的大小</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function init(){
+				var img = document.getElementById('the_img');
+				var width = img.width;
+				var height = img.height;
+				var div = img.parentNode;
+				var w = div.offsetWidth;
+				var h = div.offsetHeight;
+				if(width < w && height < h)
+					return;
+				if(width/height > w/h){
+					img.width = w - 20;
+					img.height = (w-20) * (h-20) / width;
+				}
+			}
+		</script>	
+		<style>
+			div{width:100px;height:200px;border:1px solid black;margin:10px auto;padding:10px;}
+		</style>
+	</head>
+	<body style="text-align:center" onload="init();">
+		<div>
+			<img src="1.jpg" id="the_img"/>
+		</div>
+	</body>
+</html>

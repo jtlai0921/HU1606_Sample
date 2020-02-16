@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>樹狀導覽選單</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			//在jquery的載入回調函數裡指定動作內容
+			$(function(){
+				//定義所有的屬性選單的click事件
+				$('.tree a').click(function(){
+					//找到下一個選單
+					var p = $(this).parent().next();
+					//若果該選單是本級選單的子選單，則顯示或是不顯示
+					while($(p).attr('class') == 'menu2'){
+						$(p).toggle();	//顯示或不顯示交叉
+						p = $(p).next();//循環找到下一個mune2的子選單
+					}
+				});
+			});
+		</script>	
+		<style>
+			.tree{
+				width:150px;
+				border: 1px solid black;
+				margin:0 auto;
+			}
+			.tree a:hover{
+				background-color: pink;				
+			}
+			.tree p{
+				margin:5px 0;
+				text-align: left;
+			}
+			.menu1{
+				padding-left:5px;
+				margin:0;
+			}
+			.menu2{
+				padding-left:20px;
+				margin:0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<div class="tree">
+			<p class="menu1"><a href="#">選單1</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+			<p class="menu1"><a href="#">選單1</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+			<p class="menu1"><a href="#">選單1</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+			<p class="menu2"><a href="#">選單2</a></p>
+		</div>
+	</body>
+</html>

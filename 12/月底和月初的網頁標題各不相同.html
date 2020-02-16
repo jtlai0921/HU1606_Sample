@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>月底和月初的網頁標題各不相同</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//修改標題的函數
+			function start(){	
+				var date = new Date();
+				var str = '';
+				var m = date.getMonth();
+				if(m < 15)
+					str = '月初，要做好這個月的計劃和安排喲';
+				if(m >= 15)
+					str = '這個月已經由去超過一半了，請珍惜時間';
+				document.title = str;
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="start()">
+		<p>
+			請注意看網頁標題
+		</p>
+	</body>
+</html>

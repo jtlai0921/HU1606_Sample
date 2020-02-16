@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>只能輸入數字的文字框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//格式驗證
+			function validateInput(){
+				//獲得文字框的DOM
+				var myText = document.getElementById("myText");
+				var val = myText.value;			//取得使用者輸入的值
+				if(!/\b[0-9]+\b/.test(val)){			//使用正則驗證
+					alert('只能輸入數字');			//提示錯誤訊息
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義文字框 -->
+		請輸入：<input type="text" value="" id="myText" /><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="傳送檢驗" id="myBtn" onclick="validateInput();"/>
+	</body>
+</html>

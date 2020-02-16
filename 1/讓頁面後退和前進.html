@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓頁面後退和前進</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//前進
+			function goForward(){
+				window.history.forward();	//前進到前一張網頁
+			}
+			//後退
+			function goBack(){
+				window.history.back();		//後退到上一張網頁
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義前進和後退的按鈕 -->
+			<input type="button" value="前進" onclick="goForward()"/>
+			<input type="button" value="後退" onclick="goBack()"/>
+		</p>
+	</body>
+</html>

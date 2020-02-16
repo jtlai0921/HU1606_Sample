@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>透過控制項名存取特定的控制項</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//透過控制項名存取特定的控制項
+			function getFormDom(){
+				var f = document.forms[0];			//取得表單DOM
+				var myText = f.myText;			//透過名字取得控制項DOM
+				//提示控制項的name和value
+				alert(myText.name + " : " + myText.value);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義表單 -->
+		<form>			
+			文字框：<input type="text" name="myText"/>
+			<br/>
+			<input type="button" value="取得控制項" onclick="getFormDom()"/>
+		</form>
+	</body>
+</html>

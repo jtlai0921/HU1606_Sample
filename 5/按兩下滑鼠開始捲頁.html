@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>按兩下滑鼠卷動到網頁底部</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">
+			var nowPos;					//目前的位置
+			var myTimer;					//定時器變數
+			function startIt(){				//開始函數
+				//開始定時器，以10毫秒為單位
+				myTimer = window.setInterval("scrollPage()",10);
+			}
+			//停止函數
+			function stopIt(){
+				//取消定時器
+				clearInterval(myTimer);
+			}
+			//卷動螢幕的函數
+			function scrollPage(){
+				window.scrollBy(0,1);		//以一個像素為單位開始捲頁
+			}
+			document.onmousedown = stopIt;	//監聽點選事件
+			document.ondblclick = startIt;		//監聽按兩下事件
+		</script>
+	</head>
+	<body>
+		<!-- 定義標簽，讓網頁比較長 -->
+		<p align="center">按兩下開始捲頁，點選則停止</p>
+		<p>11</p><p>22</p><p>33</p><p>44</p><p>55</p>
+		<p>66</p><p>77</p><p>88</p><p>99</p>
+		<p>11</p><p>22</p><p>33</p><p>44</p><p>55</p>
+		<p>66</p><p>77</p><p>88</p><p>99</p>
+		<p>這就是底部啦！！</p>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>閱讀完協定以後才可以點擊的登錄按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//div的卷動條卷動事件
+			function doScroll(){				
+				//取得協定和按鈕的DOM
+				var d = document.getElementById('xieyi');
+				var btn = document.getElementById('btn');
+				//判斷是否卷動到最底部了
+				if(d.scrollTop + d.offsetHeight > 200){
+					btn.disabled = false;//還原按鈕可用
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<div style="width:200px;height:150px; overflow-y: 
+			scroll;margin:5px auto;border:1px solid black;"
+			onscroll="doScroll()" id="xieyi">
+		請認真閱讀本協定。。。<br>
+		...<br>
+		...<br>
+		...<br>
+		...<br>
+		...<br>
+		...<br>
+		...<br>...<br>
+		協定 end.
+		</div><br>
+		<input type="button" value="登錄" id="btn" disabled="disabled"/>
+	</body>
+</html>

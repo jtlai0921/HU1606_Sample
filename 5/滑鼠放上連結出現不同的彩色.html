@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>滑鼠放上連結出現不同的彩色</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//定義連結的mouseover事件
+			function defineLinkColor(){
+				//獲得網頁裡所有的連結的DOM
+				var linkDOMs = document.getElementsByTagName("a");
+				//檢查所有的連結DOM
+				for(var i=0; i<linkDOMs.length; i++){
+					//為每一個連結的mouseover定義事件回調
+					linkDOMs[i].onmouseover = function(){
+						this.style.color = 'red'; 		//為目前的連結改變彩色型態
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="defineLinkColor();">
+		<!-- 定義連結 -->
+		<p align="center">
+			<a href="#">連結一</a>
+			<a href="#">連結二</a>
+		</p>
+	</body>
+</html>

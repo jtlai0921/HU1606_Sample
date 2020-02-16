@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>關閉視窗的那個“X”連結</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//自訂click事件
+			function defineLinkClick(){				
+				var myLink = document.getElementById("myLink");//獲得連結的DOM	
+				myLink.onclick = function(){	//定義click事件
+					window.close();			//關閉視窗
+					return false;			//傳回
+				};
+			}
+		</script>
+	</head>
+	<body onload="defineLinkClick();" style="text-align:center;">
+		<!-- 定義X連結 -->
+		點擊&nbsp;<a href="#" id="myLink">X</a>&nbsp;關閉視窗
+	</body>
+</html>

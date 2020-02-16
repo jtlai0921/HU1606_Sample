@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>同時改變多個DOM的型態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義一個外部型態，和引入外部css檔案效果一樣 -->
+		<style>
+			.content{
+				font-size : 14px;
+			}
+		</style>
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function changeFont(p){
+				var fontSize = p + 'px';
+				var contents = document.getElementsByClassName('content');
+				for(var i=0;i<contents.length;i++){
+					contents[i].style.fontSize = fontSize;
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<p class="content">
+			這裡是第一段...
+		</p>
+		<p class="content">
+			這裡是第二段...
+		</p>
+		<p class="content">
+			這裡是第三段...
+		</p>
+		<br/>
+		<input type="button" onclick="changeFont(16);" value="大字型"/>
+		<input type="button" onclick="changeFont(12);" value="小字型"/>
+	</body>
+</html>

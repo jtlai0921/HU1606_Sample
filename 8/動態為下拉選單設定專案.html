@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態為下拉選單設定專案</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//動態設定下拉式選單目
+			function fillOptions(){
+				//取得下拉選單的DOM
+				var mySel = document.getElementById("mySelect");
+				mySel.innerHTML = '';			//先把原有內容清空
+				var str = '';						//內容的字元拼接
+				for(var i=1; i<=12; i++){			//循環從1到12
+					//拼接內容，以月份為內容
+					str += "<option value="+i+">"+i+"月</option>";
+				}
+				mySel.innerHTML = str;			//掛接內容選項
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義下拉選單 -->
+		請選取：<select id="mySelect"></select>
+		<br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="填充下拉式選單目" id="myBtn" onclick="fillOptions();"/>
+	</body>
+</html>

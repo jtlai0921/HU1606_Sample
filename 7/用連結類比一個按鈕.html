@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用連結類比一個按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//自訂按鈕的型態
+			function defineLinkClick(){
+				//獲得連結的DOM
+				var myLink = document.getElementById("myLink");
+				myLink.style.fontSize = '16px';		//字型
+				myLink.style.textAlign = 'center';	//字元對齊
+				myLink.style.color = 'white';		//彩色
+				myLink.style.padding = '4px 10px';	//內距離
+				myLink.style.margin = '3px';		//外邊框
+				myLink.style.background = 'gray';	//背景色
+				myLink.style.textDecoration = 'none';//文字型態
+				//邊框彩色，造成深淺效果來模仿按鈕
+				myLink.style.borderColor = '#EEEEEE #717171 #717171 #EEEEEE';
+				myLink.style.borderStyle = 'solid';	//邊框型態為實線
+				myLink.style.borderWidth = '1px';	//邊框的粗細
+			}
+		</script>
+		
+	</head>
+	<body onload="defineLinkClick();" style="text-align:center;">
+		<!-- 定義X連結 -->
+		<a href="#" id="myLink">按鈕式連結</a>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓文字框只帶有下劃線</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">						
+			function changeTextStyle(){				//讓文字框只帶有下劃線
+				//獲得文字框的DOM
+				var myText = document.getElementById("myText");
+				myText.style.borderColor = 'black';		//設定邊框彩色
+				myText.style.borderStyle = 'solid';		//設定邊框型態為實線
+				myText.style.borderWidth = '0 0 1px 0';	//設定邊框大小，0代表無
+			}
+		</script>
+	</head>
+	<body style="text-align:center;" onload="changeTextStyle()">
+		<!-- 定義文字框 -->
+		請輸入姓名：<input type="text" value="" id="myText" /><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="按鈕" id="myBtn"/>
+	</body>
+</html>

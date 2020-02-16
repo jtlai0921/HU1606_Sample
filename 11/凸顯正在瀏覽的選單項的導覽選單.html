@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>凸顯正在瀏覽的選單項的導覽選單</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var currIndex = 1;		//正在瀏覽的選單項的索引
+			function init(){		//網頁載入完成事件函數
+				//得到選單DOM
+				var menu = document.getElementById('menu');
+				//檢查所有的選單項
+				var items = menu.children;
+				for(var i=0;i<items.length;i++){
+					var item = items[i];//得到目前的選單項
+					//若果檢查到正在瀏覽的選單項，就加入型態
+					if(i == currIndex)
+						item.className = 'curr';
+				}
+			}
+		</script>	
+		<style>
+			.menu{
+				list-style: none;
+				width: 400px;
+				margin: 10px auto;
+			}
+			.menu li{
+				float:left;
+				width:98px;
+				border:1px solid black;
+			}
+			.menu a{
+				color:black;
+				width:100%;
+			}
+			.menu a:hover{
+				background-color:pink;
+			}
+			.curr{
+				background-color:pink;
+			}
+		</style>
+	</head>
+	<body style="text-align:center" onload="init();">
+		<ul class="menu" id="menu">
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+		</ul>
+	</body>
+</html>

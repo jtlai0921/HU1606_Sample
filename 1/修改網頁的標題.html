@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>修改網頁的標題</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//修改標題
+			function changeTitle(){
+				//得到新的title的值
+				var newTitle = document.getElementById('newTitle').value;
+				document.title = newTitle;	//修改標題
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義輸入框和按鈕 -->
+			<input type="text" name="newTitle" id="newTitle" value=""/>
+			<input type="button" value="修改標題" onclick="changeTitle()"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>把陣列裡的元素按照自然排序</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			var arr = new Array();		//建立一個陣列
+			for(var i=0;i<10;i++){		//檢查列印陣列的值
+				//陣列的值隨機獲得，100一下的正整數
+				arr[i] = Math.floor(Math.random() * 100);	
+			}
+			//列印最初的順序
+			alert('原始順序:' + printArr(arr));
+			arr.sort();					//sort進行排序
+			alert('排序以後:' + printArr(arr));
+			function printArr(arr){
+				var str = '';
+				for(var prop in arr){	//像物件的屬性一樣檢查陣列
+					str += arr[prop] + ',';
+				}
+				return str;
+			}		
+		</script>
+	</head>
+	<body style="text-align:center">		
+	</body>
+</html>

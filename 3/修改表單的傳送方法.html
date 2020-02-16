@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>修改表單的傳送方法</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//修改表單的傳送方法
+			function modifyMethod(){
+				var f = document.forms[0];			//取得表單DOM
+				var method = f.myMethod.value;	//選取的方法
+				f.method = method;				//修改選取的傳送方法
+				//用提示框展示結果
+				alert("表單目前的傳送方法：" + method);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義表單 -->
+		<form method="post">
+			請選取傳送方法：
+			<select name="myMethod">
+				<option value="">==請選取==</option>
+				<option value="get">get</option>
+				<option value="post">post</option>
+			</select>
+			<br/>
+			<input type="button" value="修改傳送方法" onclick="modifyMethod()"/>
+		</form>
+	</body>
+</html>

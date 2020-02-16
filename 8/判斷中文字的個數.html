@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>判斷中文字的個數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//進行格式驗證
+			function sumInput(){
+				//獲得文字框的DOM
+				var myText = document.getElementById("myText");
+				var val = myText.value;			//取得使用者輸入的值
+				var sum = 0;					//定義中文字個數
+				for(var i=0;i<val.length;i++){		//檢查
+					var c = val.charAt(i);			//得到目前的字元
+					if(isChineseChar(c)){			//中文字判斷
+						sum++;				//個數自加
+					}
+				}
+				alert("包括中文字個數：" + sum);		//用提示框展示結果
+			}
+			//中文字驗證函數
+			function isChineseChar(c){
+				var reg = /[\u4E00-\u9FA5]/;		//定義正規表示法
+				return reg.test(c);				//傳回判斷結果
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義文字框 -->
+		請輸入：<input type="text" value="" id="myText" /><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="判斷中文字的個數" id="myBtn" onclick="sumInput();"/>
+	</body>
+</html>

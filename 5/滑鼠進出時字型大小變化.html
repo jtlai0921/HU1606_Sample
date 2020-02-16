@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>滑鼠進出時字型大小變化</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//滑鼠指標移進
+			function mOver(pDOM){
+				pDOM.style.fontSize = '20px';	//調整字型大小為20個像素
+			}	
+			//滑鼠指標移出
+			function mOut(pDOM){
+				pDOM.style.fontSize = '';		//調整字型大小型態為預設
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義一塊區域 -->
+		<p style="margin:5px auto; width:100px; height:100px; border:1px solid black;" 
+			onmouseover="mOver(this);"  onmouseout="mOut(this);">
+			把滑鼠搬移到該區域
+		</p>
+	</body>
+</html>

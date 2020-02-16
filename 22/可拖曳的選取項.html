@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>可拖曳的選取項</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>		
+		<script src="ui/jquery.ui.mouse.js"></script>
+		<script src="ui/jquery.ui.sortable.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成回調函數
+			$(function() {
+				//對兩個菜同同時套用可排序功能
+				$( "#sortable1, #sortable2" ).sortable({
+					//使用型態表來連線
+					connectWith: ".connectedSortable"
+				}).disableSelection();//不可選定
+			});
+		</script>
+		<style>
+			#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; }
+			#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+		</style>
+    </head>
+    <body>
+		<label>請交叉排序：</label><br>
+		<ul id="sortable1" class="connectedSortable">
+			<li class="ui-state-default">選單1</li>
+			<li class="ui-state-default">選單2</li>
+			<li class="ui-state-default">選單3</li>
+			<li class="ui-state-default">選單4</li>
+			<li class="ui-state-default">選單5</li>
+		</ul>
+
+		<ul id="sortable2" class="connectedSortable">
+			<li class="ui-state-highlight">選單1</li>
+			<li class="ui-state-highlight">選單2</li>
+			<li class="ui-state-highlight">選單3</li>
+			<li class="ui-state-highlight">選單4</li>
+			<li class="ui-state-highlight">選單5</li>
+		</ul>
+    </body>
+</html>

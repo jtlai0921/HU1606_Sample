@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>按鈕在點選以後就失效</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//傳送表單
+			function submitForm(){
+				//讓按鈕失效
+				document.getElementById("myBtn").disabled = true;
+				document.forms[0].submit();		//傳送表單
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義表單，按鈕 -->
+		<form action="" method="post" style="display:block; width: 250px; height: 100px; 
+			border: 1px solid black;">
+			<br/>
+			使用者名稱：<input type="text" name="username"/><br/>
+			密碼：<input type="password" name="password"/><br/>
+			<input type="button" value="傳送" onclick="submitForm();" id="myBtn"/><br/>
+		</form>		
+	</body>
+</html>

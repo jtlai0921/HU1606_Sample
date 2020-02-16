@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>標題欄顯示目前的日期</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//修改標題的函數
+			function start(){	
+				var date = new Date();
+				document.title = date.toString();
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<p>
+			<input type="button" value="修改標題" onclick="start();"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在陣列的任意位置加入和移除元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//建立一個長度為5的陣列
+			var arr = new Array(5);
+			//循環為陣列的元素給予值
+			for(var i=0; i<arr.length; i++){
+				arr[i] = i+1;	//元素的值以此為1-5
+			}
+			//加入一個元素的函數
+			function addOne(){
+				//取得新元素值和索引的dom
+				var e = document.getElementById('elm').value;
+				var n = document.getElementById('num').value;
+				n = parseInt(n);	//型態轉換
+				arr[n] = e;			//為新元素給予值
+			}
+			//移除一個元素的函數
+			function deleteOne(){
+				//取得索引的dom
+				var n = document.getElementById('num').value;
+				n = parseInt(n);	//型態轉換
+				//檢查需要
+				for(var i=n;i<arr.length;i++){
+					arr[i] = arr[i+1];//把元素往前搬移一個位置
+				}
+				arr.pop();			//最後把最後一個元素移除掉
+			}
+			//列印陣列的值的函數
+			function printArr(){
+				var str = '';	//建立變數，拼湊列印的字元
+				//檢查陣列，湊出列印的字串
+				for(var i=0; i<arr.length; i++){
+					str += arr[i]+','
+				}
+				alert('arr=' + str);//列印陣列的值
+			}
+		</script>
+	</head>
+	<body style="text-align:center">		
+		加入的值:<input type="text" name="elm" id="elm"/>
+		索引:<input type="text" name="num" id="num"/>		
+		<br/>
+		<input type="button" value="加入" onclick="addOne();" />
+		<input type="button" value="移除" onclick="deleteOne();" />
+		<br/>
+		<input type="button" value="列印arr的值" onclick="printArr();" />
+	</body>
+</html>

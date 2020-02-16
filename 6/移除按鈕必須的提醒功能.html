@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>移除按鈕必須的提醒功能</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//移除按鈕必須的提醒功能
+			function deleteInfo(){
+				var confirmDel = false;		//起始為false
+				//使用出現框來接受使用者是否確定移除
+				confirmDel = window.confirm("確定移除嗎？");
+				if(confirmDel){				//若果使用者確定移除
+					alert('移除成功');		//這裡舉出提示
+				}else{
+					return false;			//否則傳回false，什麼都不做
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義按鈕 -->
+		<h2>移除一條訊息</h2>
+		<input type="button" value="移除" id="myBtn" onclick="deleteInfo()"/>
+	</body>
+</html>

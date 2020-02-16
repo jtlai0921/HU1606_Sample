@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>幾條連結交替顯示</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			var arr = [];		//資料陣列變數
+			//起始化資料
+			arr[arr.length] = ['連結1','http://www.baidu.com'];
+			arr[arr.length] = ['連結2','http://www.baidu.com'];
+			arr[arr.length] = ['連結3','http://www.baidu.com'];
+			var index = 0;		//目前索引
+			function init(){	//起始化函數				
+				setInterval(function(){//開始定時器
+					if(index >= arr.length)//若果超過邊界
+						index = 0;//還原到0
+					//拼接連結的html字元
+					var str = '<a href="'+arr[index][1]+'">'+arr[index][0]+'</a>';
+					//取得連結放置在的DOM
+					var demo = document.getElementById('demo');
+					demo.innerHTML = str;//填充內容
+					index++;	//索引加1
+				},2000);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="init()">
+		<div id="demo"></div>
+	</body>
+</html>

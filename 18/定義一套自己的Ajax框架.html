@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>定義一套自己的Ajax框架</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//定義個一個function，作為一個Ajax類別
+			//它的建構函數需要提供以下參數清單
+			function Ajax(url,callback,params,method){
+				this.method = method;	//物件的ajax請求方法
+				this.url = url;			//物件的ajax請求url
+				this.params = params;	//物件的ajax請求參數
+				this.callback = callback;//物件的ajax請求回調
+				this.send = function(){	//請求傳送函數
+					if(!this.method)	//當沒有提供請求方法的時候，預設為GET
+						this.method = 'GET';
+					if(method == 'POST'){//若果是POST方法
+						//用POST方法，參數可以透過send方法的參數寫到請求的內容流中去
+						window.Ajax.client.open(this.method,this.url,true);
+						window.Ajax.client.send(params);//呼叫send函數，把參數寫的請求內容中
+					}else if(method == 'GET'){//若果是GET方法
+						//用GET請求方法，參數就只能放在URL的後邊，這種模式受到URL長度限制
+						window.Ajax.client.open(this.method, this.url + "?" + params,true);
+						window.Ajax.client.send();
+					}
+					//請求發出以後，就開始監聽client的狀態變化
+					window.Ajax.client.onreadystatechange = function(){
+						//若果成功傳回，則呼叫預先定義的回調函數
+						if (window.Ajax.client.readyState==4 && window.Ajax.client.status==200){
+							callback();//呼叫回調函數
+						}
+					};
+				};
+				//這裡，把Ajax的client屬性作為一種靜態變數，類別似於單例模式
+				if(!window.Ajax.client){
+					// 判斷是否支援ActiveX控制項,老版本的IE瀏覽器就需要使用ActiveXObject來建立
+					if(window.ActiveXObject){ 
+						// 透過案例化ActiveXObject的一個新案例來建立XMLHTTPRequest物件
+						window.Ajax.client = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					// 其他的大多數瀏覽器都支援本機javascript物件
+					else if(window.XMLHttpRequest){ 
+						// 建立XMLHTTPRequest的一個案例（本機javascript物件）
+						window.Ajax.client = new XMLHttpRequest();
+					}
+				}
+			}
+			//button的click事件函數
+			function sendAjax(){
+				//建立一個Ajax物件，然後提供必要的參數
+				var ajax = new Ajax('test001.txt',function(){
+					alert(window.Ajax.client.responseText);
+				},'','GET');
+				//傳送請求
+				ajax.send();
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<input type="button" value="Send" onclick="sendAjax();"/>
+	</body>
+</html>

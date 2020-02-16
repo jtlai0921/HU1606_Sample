@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>圖片陰影效果</title>
+		<meta http-equiv="Content-Type" content="textml; charset=utf-8"/>
+		<script type="text/javascript">	
+			//改變陰影的函數
+			function ch(t){
+				//取得層的DOM
+				var d = document.getElementById('demo');
+				if(t)//是否需要加入陰影
+					d.style.boxShadow = '10px 10px 15px gray';
+				else
+					d.style.boxShadow = '0 0 0';//還原預設
+			}
+		</script>
+		<style>
+			#demo{
+				margin: 20px auto;
+				box-shadow: 10px 10px 15px gray;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<img id="demo" src="1.jpg"/>
+		<br>
+		<input type="button" value="有陰影" onclick="ch(true);"/>
+		<input type="button" value="無陰影" onclick="ch(false);"/>
+	</body>
+</html>

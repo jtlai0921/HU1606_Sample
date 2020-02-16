@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用動態的函數參數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//測試函數
+			function fun(){
+				//根據arguments變數的長度得到參數個數
+				var len = arguments.length;
+				//展示結果
+				alert(len + '個參數');
+				alert(caller)
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<input value="傳入一個參數" type="button" onclick="fun(1)"/><br><br>
+		<input value="傳入二個參數" type="button" onclick="fun(1,2)"/><br><br>
+		<input value="傳入三個參數" type="button" onclick="fun(1,2,3)"/>
+	</body>
+</html>

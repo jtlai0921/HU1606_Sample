@@ -1,0 +1,48 @@
+<html>
+<HEAD>
+	<title>帶關閉按鈕的右下角圖片廣告</title>
+	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<SCRIPT language=Javascript>
+		//定位層的函數
+		function posRightCorner() {
+			//top放到 高度-120 的位置，120大概就是div的高度
+			ad.style.top = document.body.scrollTop + document.body.clientHeight-120;
+			//left放到 寬度-200 的位置，200大概就是div的寬度
+			ad.style.left = document.body.scrollLeft + document.body.clientWidth-200;
+			setTimeout("posRightCorner();",100);	//用定時器檢查和定位div的位置
+		}
+		//關閉函數
+		function closeAD(){
+			ad.style.display='none';				//隱藏div
+		}
+		//視窗載入完成以後定位	
+		window.onload = function(){
+			//得到div的DOM物件
+			var ad = document.getElementById('ad');
+			posRightCorner();					//呼叫定位函數
+		}
+	</SCRIPT>
+</HEAD>
+<BODY style="margin 0px; text-align: center">
+	<!-- 定義右下角廣告框的DIV -->
+	<div style="border: 1px solid black; z-index: 99999; width: 180px; position: absolute; height: 116px; background-color: rgb(201, 211, 243);" id="ad">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#cfdef4">
+			<tbody>
+				<tr>
+					<td width="90%" valign="middle" height="24"></td>
+					<td width="" valign="middle" align="right">
+						<!-- 定義關閉連結按鈕 -->
+						<a title="關閉" onclick="closeAD()" style="cursor: pointer;">X</a>
+					</td>
+				</tr>
+				<tr>
+					<td height="90" colspan="3">
+						<!-- 廣告內容，這裡用一句話簡單替代-->
+						Hello My AD!
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</BODY>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI實現被點擊按鈕型態突出的效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use('node', function(Y){
+				var btns = Y.all('.box-row li');//參考所有的按鈕
+				//監聽按鈕的點擊事件
+				Y.one('.box-row').delegate('click', function(e) {
+					btns.setHTML('按鈕');	//為按鈕設定文字
+					btns.setStyle('backgroundColor', 'PINK');//預設背景色
+					//為目前被點擊的按鈕設定型態
+					e.currentTarget.setHTML('我被點擊了!');  //文字內容
+					e.currentTarget.setStyle('backgroundColor', 'BLUE');//背景色為藍色
+				} , 'li');
+			});
+		</script>	
+		<style>
+			.box-row li{
+				display: inline-block;
+				zoom: 1; *display: inline; 
+				width: 100px;
+				line-height: 3em;
+				text-align: center;
+				margin: 0.5em 1em 0.5em 0;
+				border: solid 1px #ccc;
+				background-color: pink;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<ul class="box-row">
+			<li>按鈕</li>
+			<li>按鈕</li>
+			<li>按鈕</li>
+			<li>按鈕</li>
+			<li>按鈕</li>
+		</ul>
+	</body>
+</html>

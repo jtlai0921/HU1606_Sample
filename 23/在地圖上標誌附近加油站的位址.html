@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在地圖上標誌附近加油站的位址</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px}  
+		#container{height:100%}  
+		</style>  
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=7ada0390a58b3e01fef08022c073ff78"></script>
+		<script type="text/javascript">
+			//起始化函數
+			function init(){
+				navigator.geolocation.getCurrentPosition(function(pos){
+					var x = pos.coords.longitude;//得到經度
+					var y = pos.coords.latitude;//得到緯度
+					var map = new BMap.Map("container");// 建立地圖案例  
+					var point = new BMap.Point(x, y); // 建立中心點座標  
+					map.centerAndZoom(point, 15);// 起始化地圖，設定中心點座標和地圖等級
+					for(var i=0;i<10;i++){		//隨機算10個座標
+						var x2 = x;				//座標點的位置
+						var y2 = y;
+						if(i % 2 == 0){
+							x2 += 1*i;
+						}
+						if(i % 2 != 0){
+							y2 += 1*i;
+						}
+						var p2 = new BMap.Point(x2, y2);//建立新的點
+						var marker = new BMap.Marker(point);// 建立標注    
+						map.addOverlay(marker);		//加入覆蓋層
+					}
+				});				
+			}
+		</script>
+    </head>
+    <body onload="init()">
+		<div id="container"></div> 
+    </body>
+</html>

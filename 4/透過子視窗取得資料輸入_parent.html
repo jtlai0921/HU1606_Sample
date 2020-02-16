@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>透過子視窗取得資料輸入_parent</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//為子視窗準備的傳值函數
+			function passValue(val){		
+				alert("子視窗輸入的是：" + val);	//用提示框展示結果
+			}			
+			function openNewWin(){				//開啟子視窗
+				//使用window的open()函數開啟一個子視窗
+				var win = window.open("透過子視窗取得資料輸入.html");
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<input type="button" value="開啟子視窗" onclick="openNewWin();"/>
+	</body>
+</html>

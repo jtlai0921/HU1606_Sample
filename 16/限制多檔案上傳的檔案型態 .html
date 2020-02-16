@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>限制多檔案上傳的檔案型態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function chkform(){
+				//取得Dom
+				var mypic = document.forms[0].mypic;
+				for(var i = 0 ;i<mypic.files.length;i++){ 
+					//取出其中一個檔案
+					var file = mypic.files[i];
+					var name = file.name;//檔案的名字，進行大寫處理
+					name = name.substring(name.lastIndexOf(".")+1).toUpperCase(); 
+					//判斷檔名的副檔名是否符合要求
+					if (name!="JPG"&&name!="GIF"&&name!='PNG'&&name!='BMP'){
+						alert("格式不正確");//提示不正確
+						return false;		//直接傳回錯誤，不再傳送表單
+					}
+				}
+				//傳送表單
+				if(mypic.files.length > 0)
+					document.forms[0].submit();
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form action="" method="post" enctype="multipart/form-data" name="myform" onsubmit="chkform();return false;">
+		  <label>
+		  <input type="file" name="mypic" multiple/>
+		  </label>
+		  <label>
+		  <input type="submit" name="Submit" value="傳送"/>
+		  </label>
+		</form>
+	</body>
+</html>

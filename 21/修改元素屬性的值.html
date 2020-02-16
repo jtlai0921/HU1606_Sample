@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>修改元素屬性的值</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function chURL(){
+				$('a').attr('href','http://www.baidu.com');
+				alert('連結的新URL是：' + $('a').attr('href'));
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<a href="#">連結</a>
+		<input type="button" value="改變連結的URL" onclick="chURL();"/>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用正規表示法驗證Email格式</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//格式驗證
+			function validateInput(){
+				//獲得文字框的DOM
+				var myText = document.getElementById("myText");
+				var email = myText.value;				//獲得使用者輸入的Email
+				//定義正規表示法
+				var emailReg 
+					= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+				if(emailReg.test(email)){				//判斷是否符合格式要求
+					alert("驗證透過，容許傳送");		//透過
+				}else{
+					alert("驗證失敗，請檢查重新輸入");	//驗證失敗
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;" >
+		<!-- 定義文字框 -->
+		請輸入Email：<input type="text" value="" id="myText" /><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="傳送檢驗" id="myBtn" onclick="validateInput();"/>
+	</body>
+</html>

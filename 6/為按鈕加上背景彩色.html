@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為按鈕加上背景彩色</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">						
+			function defineBtnBack(){						//為按鈕加上背景彩色
+				var myBtn = document.getElementById("myBtn");//獲得圖片的DOM
+				myBtn.style.background = 'red'; 			//把背景色改成紅色
+			}
+		</script>
+	</head>
+	<body onload="defineBtnBack();" style="text-align:center;">
+		<!-- 定義按鈕 -->
+		<input type="button" value="一個按鈕" id="myBtn"/>
+	</body>
+</html>

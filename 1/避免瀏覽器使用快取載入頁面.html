@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>避免瀏覽器使用快取載入頁面</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//載入完成以後的回調函數
+			function myOnLoad(){
+				//取得到所有的超級連線DOM
+				var links = document.getElementsByTagName('a');
+				for(var i=0; i<links.length; i++){	//檢查
+					var link = links[i];			//得到目前的連結的DOM
+					var href = link.href;			//連結的位址
+					if(href.indexOf('?') > -1){		//位址中是否已經包括了參數
+						//修改連結的位址，加上一個參數：目前時間的毫秒數
+						href += '&time=' + new Date().getTime();
+					}else{
+						href += '?time=' + new Date().getTime();
+					}
+					link.href = href;				//賦新的位址
+				}
+			}
+			//使用window的onload元素進行回調處理
+			window.onload = myOnLoad;
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義網頁的超級連結 -->
+			<a href="a.html">連結一</a>
+			<a href="b.html">連結二</a>
+		</p>
+	</body>
+</html>

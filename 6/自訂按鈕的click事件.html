@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自訂按鈕的click事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//自訂按鈕的click事件
+			function defineBtnClick(){
+				//獲得按鈕的DOM
+				var myBtn = document.getElementById("myBtn");
+				//定義click事件
+				myBtn.onclick = function(){					
+					alert('按鈕被點擊了。');		//事件的內容邏輯
+				};
+			}
+		</script>
+	</head>
+	<body onload="defineBtnClick();" style="text-align:center;">
+		<!-- 定義按鈕 -->
+		<input type="button" value="一個按鈕" id="myBtn"/>
+	</body>
+</html>

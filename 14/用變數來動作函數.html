@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用變數來做函數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//定義變數f，並為它給予值一個函數，函數名則就是f
+			var f = function(){
+				//函數的功能就是進行一次alert動作
+				alert('我是一個函數喲。');
+			};
+			//定義函數callme，傳入的參數就是一個函數
+			function callme(fun){
+				fun();		//執行函數
+			}
+		</script>
+	</head>
+	<!-- 在body裡定義onload事件，當啟動的時候呼叫callme函數 -->
+	<body style="text-align:center" onload="callme(f);">
+	</body>
+</html>

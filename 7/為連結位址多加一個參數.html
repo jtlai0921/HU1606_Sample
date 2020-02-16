@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為連結位址多加一個參數</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//修改連結位址的函數
+			function showNewUrl(){
+				//得到連結的DOM
+				var links = document.getElementsByTagName('a');
+				//檢查所有的連結
+				for(var i=0;i<links.length;i++){
+					var href = links[i]['href'];		//得到目前的位址
+					//若果包括了問號的位址，證明已經有參數了
+					if(href.indexOf('?') > 0){
+						//使用&符號串聯多的參數
+						links[i]['href'] = href + '&param001=test';
+					}else{
+						//使用？來加第一個參數
+						links[i]['href'] = href + '?param001=test';
+					}
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<a href="index.php">連結一</a>&nbsp;
+		<a href="index.php?page=1">連結一</a>&nbsp;
+		<br><br>
+		<input type="button" value="為連結新加入一個參數" onclick="showNewUrl();"/>
+	</body>
+</html>

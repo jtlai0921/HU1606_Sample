@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓圖片不可以拖曳</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//當圖片放下以後的事件回調
+			function allowDrop(ev){
+				ev.preventDefault();	//屏蔽掉事件預設的行為
+			}
+			//圖片被拖曳時的事件回調
+			function drag(ev){
+				//把圖片的id透過事件傳遞
+				ev.dataTransfer.setData("IMG_ID",ev.target.id);
+			}
+			//當圖片放下時的事件回調
+			function drop(ev){
+				ev.preventDefault();	//屏蔽掉事件預設的行為
+				//取得被拖曳的圖片的id值
+				var data = ev.dataTransfer.getData("IMG_ID");
+				//得到圖片的DOM物件
+				var pic = document.getElementById(data);
+				//在目的DIV裡掛接圖片DOM
+				ev.target.appendChild(pic);
+				//把圖片的可拖曳性設定為false
+				pic.draggable = false;
+			}
+		</script>
+		<style>
+			div{width: 300px; height: 80px; border: 1px solid black; margin: 0 auto; padding: 5px;}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<p>把圖片不可以拖曳到矩形框裡:</p>
+		<div id="myDiv1">
+			<!-- 圖片的屬性和事件設定 -->
+			<img id="myDrag" src="drag_img.jpg" draggable="true" ondragstart="drag(event)" />
+		</div>
+		<br />
+		<!-- 目的容器的ondrop和ondragover事件的設定 -->
+		<div id="myDiv2" ondrop="drop(event)" ondragover="allowDrop(event)">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>登錄按鈕倒計時效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//倒計時 秒
+			var sec = 10;
+			//起始化函數
+			function init(){				
+				//設定定時器，間隔1秒
+				timer = setInterval(function(){
+					//取得登錄按鈕的DOM
+					var btn = document.getElementById('btn');
+					sec--;		//秒數自減1
+					btn.value = '登錄('+sec+')';//按鈕的文字
+					if(sec == 0){//若果倒計時結束
+						clearInterval(timer);//清除定時器
+						btn.disabled = false;//還原可用
+						btn.value = '登錄';//設定按鈕文字
+					}
+				}, 1000);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="init();">
+		<p>請認真閱讀本協定。。。</p><br>
+		<input type="button" value="登錄(10)" id="btn" disabled="disabled"/>
+	</body>
+</html>

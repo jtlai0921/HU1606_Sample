@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>需要確認的連結</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//確認的連結函數
+			function confirmOpen(link){
+				//出現提示框，要求使用者確認
+				if(confirm('您確認開啟'+link+'嗎？')){
+					return true;	//傳回真
+				}else{
+					return false;	//傳回假
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<a href="http://www.baidu.com" onclick="return(confirmOpen(this.href))">開啟連結</a>
+	</body>
+</html>

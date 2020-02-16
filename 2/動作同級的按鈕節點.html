@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>參考同級的元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//取得同級按鈕的value
+			function getLevelBtnVal(btn){
+				var p = btn.parentNode;			//透過點選按鈕取得它的父節點
+				var children = p.childNodes;		//得到父節點的所有子節點
+				//檢查子節點
+				for(var i=0; i<children.length; i++){
+					//判斷不是目前節點，但是同類別節點的節點
+					if(children[i] != btn && children[i].nodeType==btn.nodeType){
+						alert(children[i].value); 	//提示對方的value值
+					}
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義按鈕 -->
+			<input type="button" value="取得同級按鈕的value" 
+				onclick="getLevelBtnVal(this);"/>
+			<input type="button" value="取得同級按鈕的value2" 
+				onclick="getLevelBtnVal(this);"/>
+		</p>
+	</body>
+</html>

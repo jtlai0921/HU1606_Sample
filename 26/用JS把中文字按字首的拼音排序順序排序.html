@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用JS把中文字按字首的拼音排序順序排序</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript" src="./pinyin.js"></script>
+		<script type="text/javascript">		
+			//取得拼音字首
+			function getPinyin(){ 
+				//取得輸入框的DOM元素
+				var chinese = document.getElementById("chinese").value;
+				var rst = document.getElementById("rst");
+				var arr = [];						//定義儲存字元的陣列變數
+				for(var i=0;i<chinese.length;i++){	//循環取出字元
+					//得到一個字元對應的拼音
+					var pinyin = Pinyin.get(chinese.charAt(i));
+					var p = pinyin.charAt(0);		//首個拼音字元
+					//為陣列填充字元物件資料
+					arr[arr.length] = {pinyin:p, ch:chinese.charAt(i)};
+				}
+				arr.sort(function(a,b){				//定義排序函數進行排序
+					var p1 = a['pinyin'];			//第一個字元的拼音字母
+					var p2 = b['pinyin'];			//第二個字元的拼音字母
+					return p1.localeCompare(p2);	//字母進行比較
+				});			
+				var str = '';						//定義變數，儲存結果的展示
+				for(var i=0;i<arr.length;i++){
+					str += arr[i]['ch'];			//串聯排好序的結果字元
+				}
+				rst.value = str;					//把結果展示到輸入框裡
+			}	
+		</script>
+	</head>
+	<body style="text-align:center">
+		<h2>請輸入中文字：</h2>
+		<p>
+			<!-- 中文字的輸入框 -->
+			中文字：<input type="text" name="chinese" value="" id="chinese"/>
+		</p>
+		<p>
+			<!-- 執行結果的輸入框 -->
+			排序以後的結果：<input type="text" name="rst" value="" id="rst"/>
+		</p>
+		<p>
+			<!-- 執行程式碼的按鈕 -->
+			<input type="button" value="執行" onclick="getPinyin();"/>
+		</p>
+	</body>
+</html>

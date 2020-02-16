@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>選取所有的元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function selAll(){
+				alert('本網頁總元素的個數是：' + $('*').length);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<span>文字</span>
+		<a href="#">連結</a>
+		<input type="button" value="選取全部的元素" onclick="selAll();"/>
+	</body>
+</html>

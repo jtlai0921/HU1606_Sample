@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>建立陣列的多種方法</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			//用陣列物件的建構函數Array(),Array物件，是內建物件，也提供一個參數，表示陣列的起始長度
+			var arr001 = new Array();		//使用new敘述建立一個長度為0的陣列
+			arr001[0] = 1;					//第一個元素為1
+			arr001[1] = 2;					//第二個元素為2
+			arr001[2] = 3;					//第三個元素為3
+			alert('第二個元素的值是：' + arr001[1]);//索引從0開始
+			//使用中括號建立陣列
+			var arr002 = [];				//使用巨集大括號建立，也可以起始化一些資料
+			arr002[0] = 'a';				//第一個元素為a
+			arr002[1] = 'b';				//第一個元素為b
+			arr002[2] = 'c';				//第一個元素為c
+			alert('陣列的長度：' + arr002.length);//陣列的長度是可以動態增加的
+		</script>
+	</head>
+	<body style="text-align:center">		
+	</body>
+</html>

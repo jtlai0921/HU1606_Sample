@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>閉套件的概念和使用</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			function a(){				//定義函數a
+				var n = 100;			//定義一個局部變數n
+				var b = function(){		//定義函數b
+					n++;				//n自加1
+					return n;			//傳回n的值
+				};
+				return b;				//a的傳回結果為函數b
+			}
+			var c = a();				//執行a函數，得到b，並給予值為c
+			c();						//c函數執行一次，n的值變成了101
+			alert(c());					//再列印n的值，為102
+		</script>
+	</head>
+	<body style="text-align:center">
+	</body>
+</html>

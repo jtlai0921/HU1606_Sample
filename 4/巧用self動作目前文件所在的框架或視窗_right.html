@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>巧用self動作目前文件所在的框架或視窗</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			function flashIt(){			//更新本網頁
+				self.location.reload();		//重新載入本網頁
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 定義標題  -->
+		<h2>右邊frame</h2>
+		<input type="button" value="更新本網頁" onclick="flashIt();"/>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>視窗開啟時定時顯示大廣告圖片及其自動關閉</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//展示廣告圖片
+			function showAdPic(){
+				//獲得廣告的DOM
+				var ad = document.getElementById('ad');
+				//直接在DOM中加入HTML原始程式來加入一個圖片的DOM
+				ad.innerHTML = '<img src="./ad.jpg" width="300" height="200"/>';
+				//設定定時器，5秒以後關閉廣告圖片
+				setTimeout(function(){
+					var ad = document.getElementById('ad');
+					ad.style.display = 'none';	//隱藏圖片
+				}, 5000);
+			}
+			//使用window的onload元素進行回調處理
+			window.onload = showAdPic;
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			網頁內容上部
+		</p>
+		<p id="ad"></p>
+		<p>
+			網頁內容下部
+		</p>
+	</body>
+</html>

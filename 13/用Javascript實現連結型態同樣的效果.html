@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用Javascript實現連結型態同樣的效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//頁面載入完成以後的事件回調
+			function linkAble(p){
+				//取得目的DOM
+				var link = document.getElementById('link');
+				link.style.cursor = 'pointer';	//修改文字的滑鼠型態
+				link.onmouseover = function(){	//定義滑鼠放上的事件
+					this.style.color = 'red';	//字型變紅色
+				};
+				link.onmouseout = function(){	//定義滑鼠移走的事件
+					this.style.color = 'black';	//字型表黑色
+				};
+				link.onclick = function(){		//定義滑鼠點擊事件
+					alert('我被點擊了');		//一句alert敘述
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center" onload="linkAble();">	
+		<span id="link">我是一個偽連結喲</span>
+	</body>
+</html>

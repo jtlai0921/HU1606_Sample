@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>切換型態表</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="text/css" rel="stylesheet" href="css1.css" />
+		<link type="text/css" rel="stylesheet" href="css2.css" />
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function changeCss(){
+				//透過js得到文字所使用的型態表,使用的是css2
+				var rs = document.styleSheets[1];
+				rs.disabled = true;		//把目前的型態禁用掉
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<span id="mytxt" class="myclass">測試文字</span>
+		<br/>
+		<input type="button" onclick="changeCss();" value="更換型態表"/>
+	</body>
+</html>

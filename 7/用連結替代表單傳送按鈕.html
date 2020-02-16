@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用連結替代表單傳送按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//自訂按鈕的型態
+			function submitForm(){
+				var form = document.forms[0];		//得到表單的DOM
+				form.submit();					//傳送表單
+			}
+		</script>
+		<style>
+			form{width: 300px; border: 1px solid black; margin: 5px auto;}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義表單 -->
+		<form action="" method="get">
+			<br/><input type="text" name=""/><br/>
+			<a href="#" id="myLink" onclick="submitForm()">傳送表單</a>
+		</form
+	</body>
+</html>

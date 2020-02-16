@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用手勢來改變圖片大小</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化函數，綁定觸摸螢幕事件
+            function init() {
+				var div = document.getElementById("div");
+				div.ongesturechange = function(e){
+					//scale代表手勢的縮放比例，小於1是拉遠，大於1是拉近，原始為1
+					var scale = e.scale;
+					//取得圖片的dom
+					var img = document.getElementsByTagName('img')[0];
+					var w = img.width;	//圖片的目前的寬度
+					var h = img.height;	//圖片的目前的高度
+					if(scale > 1){		//若果是拉近
+						w += 10;		//寬度加大10
+						h += 10;		//高度加大10
+					}else if(scale < 1){//若果是拉遠
+						w -= 10;		//寬度減小10
+						h -= 10;		//高度減小10
+					}
+					img.width = w;		//新的寬度
+					img.height = h;		//新的高度
+				};
+			}
+		</script>
+		<style>
+			div{
+				border:2px solid red; 
+				color:red;
+				margin: 10px auto;
+				padding: 20px;
+				text-align: center;
+			}
+		</style>
+    </head>
+    <body onload="init();">
+        <div id="div">
+			<img src="1.jpg" width="500" height="500"/>
+		</div>
+    </body>
+</html>

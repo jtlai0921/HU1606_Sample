@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在網頁裡動態載入JavaScript</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//動態載入JavaScript, myjs.js
+			function loadJs() { 
+				//得到html的頁首dom
+				var theHead = document.getElementsByTagName('head').item(0); 
+				//建立指令稿的dom物件案例
+				var myScript = document.createElement('script'); 
+				myScript.src='./myjs.js';			//指定指令稿路徑
+				myScript.type='text/javascript';	//指定指令稿型態
+				myScript.defer=true;				//程式下載完後再進行解析和執行
+				theHead.appendChild(myScript);		//把dom掛載到頁首
+			} 
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義按鈕 -->
+			<input type="button" value="動態載入JS" onclick="loadJs()"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>透過滑動修改網頁字型大小</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//變數x,y記錄觸摸開始位置            
+			var x = 0, y = 0; 
+            //起始化函數，綁定觸摸螢幕事件
+            function init() {
+				//綁定觸摸螢幕開始事件
+                document.addEventListener('touchstart', function(e){
+					var touch = e.touches[0]; //取得第一個觸點
+					//記錄觸點起始位置
+					x = Number(touch.pageX); //頁面觸點X座標
+					y = Number(touch.pageY); //頁面觸點Y座標
+				}, false);
+                document.addEventListener('touchmove', function(e){
+                    var touch = e.touches[0]; //取得第一個觸點
+                    var x2 = Number(touch.pageX); //頁面觸點X座標
+                    var y2 = Number(touch.pageY); //頁面觸點Y座標
+					//得到文字的dom
+					var t = document.getElementById('mytext');
+					var font = t.style.fontSize;//原本的字型大小
+                    //判斷滑動方向，若果是向右滑動則加大字型
+                    if (x2 > x) {
+						font = parseInt(font) + 1;//字型加大一像素
+						t.style.fontSize = font+'px';
+                    }
+                    if (x2 < x) {
+						font = parseInt(font) - 1;//字型減小一像素
+						t.style.fontSize = font+'px';
+                    }
+				}, false);
+				//綁定滑動結束事件
+                document.addEventListener('touchend', function(){
+					//什麼也不做
+				}, false);
+            }
+		</script>
+		<style>
+			div{
+				border:2px solid red; 
+				color:red;
+			}
+		</style>
+    </head>
+    <body onload="init()">
+        <h2>測試是否支援滑動事件</h2>
+        <div id="result">未觸發事件！</div>
+        <ul id="mytext" style="font-size:12px;">
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+			<li>項目xxx</li>
+		</ul>
+    </body>
+</html>

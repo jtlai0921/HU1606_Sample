@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用JavaScript實現的抽獎程式</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var data = "李XX,王XX,劉XX,胡XX,羅XX,楊XX,徐XX,周XX"; //抽獎資料，以逗點分隔 
+			var arr = data.split(",") ;	//分拆抽獎的資料為陣列
+			var timer = null;			//定時器變數			
+			function start(){ 			//開始抽獎函數
+				if(!timer){				//是否已經有定時器開始了
+					//建立定時器
+					timer = setInterval(function change(){ 
+						var max = arr.length - 1;	//最大的索引數字
+						var rand = Math.random();	//隨機數，小於0
+						var randIndex = parseInt(rand * max);//得到整數資料
+						//文字區域的DOM
+						var d = document.getElementById("demo");
+						d.innerHTML = arr[randIndex]; //跳動的字元
+					} ,50); //50毫秒的間隔，若果想更快，把數字變小
+				}
+			} 
+			function stop(){ 			//停止按鈕
+				clearInterval(timer); 	//清除定時器
+				timer = null;			//變數清空
+				//取得輸入框和demo的DOM
+				var r = document.getElementById("rst");
+				var d = document.getElementById("demo");
+				r.value = d.innerHTML; 	//設定結果
+			} 
+		</script>
+    </head>
+    <body>
+		<div id="demo" name="demo">請點選開始抽獎</div> 
+		<button onclick="start()">開始抽獎</button> 
+		<button onclick="stop()">停止</button> 
+		<input type="text" id="rst" value=""> 
+    </body>
+</html>

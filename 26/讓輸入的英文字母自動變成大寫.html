@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓輸入的英文字母自動變成大寫</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//把字母全部變成大寫
+			function upperInfo(){
+				var info = document.getElementById('info');//取得info的DOM
+				var str = info.value;						//info的值
+				str = str.toUpperCase();					//變成大寫字母
+				info.value = str;							//把值賦回
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 定義傳送的表單，及其包括的UI元素 -->
+		<form action="submit.html" method="post" target="myframe">
+			<h2>請輸入：</h2>
+			<p>
+				<!-- 使用者名稱的輸入框，監聽按鍵被按下的事件 -->
+				字元輸入：<input type="text" name="info" id="info" onkeyup="upperInfo()"/>
+			</p>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>延遲載入圖片</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function loadImg(){	
+				var pics = document.getElementsByTagName('IMG');
+				for(var i=0;i<pics.length;i++){
+					pics[i].src = pics[i].attributes['lazy_src'].value;
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<p>
+			<input type="button" value="載入" onclick="loadImg();"/>
+		</p>
+		<img lazy_src="1.jpg" src=""/>
+	</body>
+</html>

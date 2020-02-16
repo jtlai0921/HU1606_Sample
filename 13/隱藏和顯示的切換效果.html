@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>隱藏和顯示的切換效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!-- 定義一個外部型態，和引入外部css檔案效果一樣 -->
+		<style>
+			.myclass{
+				color:white;
+				background-color:black;
+				padding:5px;
+			}
+		</style>
+		<script type="text/javascript">
+			//按鈕的click事件監聽函數
+			function showHide(){
+				//取得目的DOM
+				var mytxt = document.getElementById('mytxt');
+				if(mytxt.style.display == 'none')
+					mytxt.style.display = 'inline';
+				else
+					mytxt.style.display = 'none';
+			}
+		</script>
+	</head>
+	<body style="text-align:center">	
+		<span id="mytxt" class="myclass">測試文字</span>
+		<br/>
+		<input type="button" onclick="showHide();" value="隱藏/顯示"/>
+	</body>
+</html>

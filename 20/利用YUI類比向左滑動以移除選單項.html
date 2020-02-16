@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI類比向左滑動以移除選單項</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="./examples.css" type="text/css" charset="utf-8">
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use('node-base','node-event-delegate', 'transition', 'event-move', function (Y) {
+				//開始監聽滑鼠滑動的事件
+				Y.one("#swipe").delegate("gesturemovestart", function(e) {
+					var item = e.currentTarget,	//事件發生的主體
+						target = e.target,		//事件發生的目的
+						container = e.container,//事件所在容器
+						//是否為移除的按鈕
+						isDeleteButton = target.hasClass("myapp-delete");
+					if (!isDeleteButton) {//若果不是點擊移除按鈕
+						//把所有的移除按鈕都隱藏起來
+						container.all(".myapp-delete").addClass("myapp-hidden");
+						//監聽滑鼠滑動結束事件
+						item.once("gesturemoveend", function(e) {
+							//顯示目前行的按鈕
+							item.one(".myapp-delete").removeClass("myapp-hidden"); 
+						});
+					} else {//若果是點擊了移除按鈕
+						item = target.get("parentNode");//父節點
+						item.remove();//移除選單行
+					}
+				}, "li", {
+					preventDefault:true	//避免li的預設事件影響我們的邏輯
+				});
+			});
+		</script>	
+		<style>
+			.yui3-js-enabled .myexample-hidden {
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<div id="groceryheader">
+			<h1>以下的選單項可以透過向左滑動來移除</h1>
+		</div>
+		<ul id="swipe">
+			<li><span>選單001</span><button class="myapp-delete myapp-hidden">Delete</button></li>
+			<li><span>選單002</span><button class="myapp-delete myapp-hidden">Delete</button></li>
+			<li><span>選單003</span><button class="myapp-delete myapp-hidden">Delete</button></li>
+			<li><span>選單004</span><button class="myapp-delete myapp-hidden">Delete</button></li>
+			<li><span>選單005</span><button class="myapp-delete myapp-hidden">Delete</button></li>
+		</ul>
+	</body>
+</html>

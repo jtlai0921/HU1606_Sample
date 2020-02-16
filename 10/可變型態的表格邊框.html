@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>可變型態的表格邊框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//為表格改變邊框型態的函數
+			function chBorder(c){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				tbl.style.border = '1px solid ' + c;
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<table id="tbl" align="center" border="1" onmouseover="chBorder('red')" onmouseout="chBorder('black')">
+			<tr>
+				<th>名字</th>
+				<th>年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

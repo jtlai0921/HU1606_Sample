@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用背景色重點突出表格行</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//為表格改變型態的函數
+			function chCell(){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				var rows = tbl.rows;			//得到目前的表格的row陣列
+				var len = tbl.rows.length;		//目前的行數
+				for(var i=1;i<len;i++){			//檢查所有行
+					var r = rows[i];			//目前行
+					r.onclick = function(){		//定義滑鼠click事件
+						//若果已經是粉紅色，則變回白色
+						if(this.style.backgroundColor == 'pink'){
+							this.style.backgroundColor = 'white';
+						}else{
+							//否則就讓背景色變成粉紅色
+							this.style.backgroundColor = 'pink'
+						}
+					};
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="chCell();">
+		<table id="tbl" align="center" border="1">
+			<tr>
+				<th>名字</th>
+				<th>年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

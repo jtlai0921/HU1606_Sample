@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態定義滑鼠指標形狀</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//起始化滑鼠形狀
+			function initMouse(){
+				//透過標簽名得到目的DOM，若果是全網頁則這裡可以用body
+				var pDom = document.getElementsByTagName("p")[0];
+				//修改型態的滑鼠指標形狀，pointer為手的形狀
+				pDom.style.cursor = 'pointer';
+			}			
+		</script>
+	</head>
+	<body style="text-align:center" onload="initMouse()">
+		<!-- 定義一塊區域 -->
+		<p style="margin:5px auto; width:200px; height:200px; background:gray;">
+			把滑鼠搬移到該區域
+		</p>
+	</body>
+</html>

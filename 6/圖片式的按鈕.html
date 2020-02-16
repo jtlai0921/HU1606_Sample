@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>圖片式的按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//圖片式的按鈕
+			function picBtn(){
+				//取得按鈕DOM
+				var myBtn = document.getElementById('myBtn');
+				myBtn.style.width = '100px';	//修改寬度，適應圖片
+				myBtn.style.height = '30px';	//修改高度，適應圖片
+				//定義圖片的背景圖片
+				myBtn.style.background = 'url(1.jpg)';
+			}
+		</script>
+	</head>
+	<body style="text-align:center;" onload="picBtn();">
+		<!-- 定義按鈕 -->
+		<input type="button" value="一個按鈕" id="myBtn" />
+	</body>
+</html>

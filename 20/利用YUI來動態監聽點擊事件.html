@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI來動態監聽點擊事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use('node', function (Y) {
+				var node = Y.one("#demo");//透過id取得到目的的DOM
+				//監聽DOM的點擊事件
+				node.on("click", function(e) {
+					Y.one('#demo').addClass('hello');//透過修改類別名來改背景色
+				});
+			});
+		</script>	
+		<style>
+			#demo{
+				width: 300px;
+				height: 100px;
+				border: 1px solid black;
+			}
+			.hello{
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<div id="demo">
+			請點擊我
+		</div>
+	</body>
+</html>

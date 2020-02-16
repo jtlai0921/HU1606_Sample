@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用Dojo動態建立層的DOM</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js"></script>
+		<script type="text/javascript">
+			//利用dojo的網頁載入完成回調函數
+			dojo.addOnLoad(function () {
+				//使用create建立div元素，並附加在body裡。
+				dojo.create("div", { innerHTML: "這是dojo建立的喲!" }, dojo.body());
+			});
+		</script>	
+	</head>
+	<body style="text-align:center">
+	</body>
+</html>

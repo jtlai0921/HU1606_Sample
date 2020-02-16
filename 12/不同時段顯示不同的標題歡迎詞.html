@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>不同時段顯示不同的標題歡迎詞</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//修改標題的函數
+			function start(){	
+				var date = new Date();
+				var str = '';
+				var hour = date.getHours();
+				if(hour < 12)
+					str = '早上好';
+				if(hour >= 12 && hour < 18)
+					str = '下午好';
+				if(hour >= 18)
+					str = '晚上好';
+				document.title = str;
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="start()">
+		<p>
+			請注意看網頁標題
+		</p>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>隱藏表格資料</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			var hasHide = false;				//起始化是沒有隱藏的
+			//為表格隱藏的函數
+			function hideTbl(){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				var arr = [];					//定義陣列變數儲存資料
+				var rows = tbl.rows;			//得到目前的表格的row陣列
+				var len = tbl.rows.length;		//目前的行數
+				for(var i=1;i<len;i++){			//檢查所有的資料行，索引從1開始
+					if(hasHide){				//若果已經隱藏了，則顯示
+						rows[i].style.display = '';
+					}else						//若果還沒有隱藏，則隱藏起來
+						rows[i].style.display = 'none';
+				}		
+				//把隱藏變數值反
+				hasHide = hasHide==false?true:false;
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<label>按兩下標頭隱藏表格資料</label>
+		<table id="tbl" align="center" border="1">
+			<tr onclick="hideTbl();">
+				<th>名字</th>
+				<th>年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

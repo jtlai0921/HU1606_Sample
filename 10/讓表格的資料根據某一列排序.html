@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓表格的資料根據某一列排序</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			var sortType = "";//asc為升冪，desc為降冪
+			//為表格排序的函數
+			function sortTbl(){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				var arr = [];					//定義陣列變數儲存資料
+				var rows = tbl.rows;			//得到目前的表格的row陣列
+				var len = tbl.rows.length;		//目前的行數
+				for(var i=1;i<len;i++){			//檢查所有行
+					//得到資料的name
+					var name = rows[i].cells[0].innerHTML;
+					//得到資料的age
+					var age = rows[i].cells[1].innerHTML;
+					//把資料儲存到陣列變數裡
+					arr[arr.length] = {'name':name,'age':age};
+				}
+				for(var i=0;i<len-1;i++){		//把之前的行先移除，注意第一行是標頭
+					tbl.deleteRow(1);			//始終移除第一行
+				}
+				if(sortType == '')				//若果起始的排序是空，則升冪
+					sortType = 'asc';			
+				else if(sortType == 'asc')		//若果之前是升冪，則這次用降冪
+					sortType = 'desc';
+				else
+					sortType = 'asc';			//預設為升冪
+				//為陣列的sort函數指定排序規則函數
+				arr = arr.sort(function(obj1,obj2){
+					if(sortType == 'desc'){		//升冪
+						return obj2['age'] - obj1['age'];						
+					}else{						//降冪
+						return obj1['age'] - obj2['age'];
+					}
+				});
+				//檢查資料陣列
+				for(var i=0;i<arr.length;i++){
+					var r = tbl.insertRow();	//插入一行
+					var t1 = r.insertCell(0);	//插入一個單元格
+					var t2 = r.insertCell(1);	//插入一個單元格
+					t1.innerHTML = arr[i]['name'];//為單元格給予值
+					t2.innerHTML = arr[i]['age'];//為單元格給予值
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<table id="tbl" align="center" border="1">
+			<tr>
+				<th>名字</th>
+				<!-- 年齡列可以進行排序動作 -->
+				<th onclick="sortTbl();">年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

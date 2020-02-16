@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>利用YUI實現層的隨意拖曳效果</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://yui.yahooapis.com/3.10.3/build/yui/yui-min.js"></script>
+		<script type="text/javascript">
+			//開始定義一個YUI的沙盒
+			YUI().use('dd-drag', function(Y) {
+				//建立一個可拖曳的物件
+				var dd = new Y.DD.Drag({
+					node: '#demo'//指定可以拖曳的DOM
+				});   
+			});
+		</script>	
+		<style>
+			#demo {
+				height: 100px;
+				width: 100px;
+				border: 1px solid black;
+				background-color: pink;
+				cursor: move;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">請拖曳我</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>許多秒後不動作自動關閉視窗</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var willClose = true;	//定義一個是否關閉的全局變數
+			//滑鼠點擊網頁
+			function clickBody(){
+				willClose = false;	//但使用者滑鼠點擊網頁以後，則把變數置為false
+			}
+			setInterval(function(){
+				if(willClose){		//判斷是否需要關閉
+					window.close();	//關閉視窗
+				}else{				//若果點擊過，這重新開始計算
+					willClose = true;
+				}
+			},10000);
+		</script>
+	</head>
+	<body style="text-align:center" onclick="clickBody()">
+		若果使用者10秒鍾不點選網頁，本視窗將自動關閉。
+	</body>
+</html>

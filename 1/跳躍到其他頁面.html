@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>跳躍到其他頁面</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//跳躍位址
+			function changeURL(){
+				//得到新的url的值
+				var newURL = document.getElementById('newURL').value;
+				//透過修改位址欄的位址來跳躍到新的網頁位址
+				self.location.href = newURL;	
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<!-- 定義輸入框和按鈕 -->
+			<input type="text" name="newURL" id="newURL" value=""/>
+			<input type="button" value="跳躍位址" onclick="changeURL()"/>
+		</p>
+	</body>
+</html>

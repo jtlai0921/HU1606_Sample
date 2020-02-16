@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>頁面載入等待界面</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//傳送表單的動作
+			function submitForm(){
+				var doing = document.getElementById('doing');	//取得界面的dom
+				doing.style.display = '';	//取消隱藏
+				self.location.reload();		//這裡，重新載入頁面來類比表單的傳送
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- 友善提示界面的層 -->
+		<div id="doing" style="Z-INDEX: 99; left:0px; top:0px; display:none; WIDTH:100%;  POSITION:absolute; HEIGHT:100%; background:gray;">
+			<br/><br/><br/>載入中，請等待。。。
+		</div>
+		<p>
+			<input type="button" value="傳送表單" onclick="submitForm()"/>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>動態的為表格中的單元格文字加入型態</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//為表格改變型態的函數
+			function chCell(){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				var rows = tbl.rows;			//得到目前的表格的row陣列
+				var len = tbl.rows.length;		//目前的行數
+				for(var i=1;i<len;i++){			//檢查所有行
+					var cells = rows[i].cells;	//得到這一行的所有單元格
+					//檢查單元格
+					for(var j=0;j<cells.length;j++){
+						cells[j].onclick = function(){//定義單元格的click事件
+							//若果字型的彩色是預設的或是黑色
+							if(this.style.color == '' || this.style.color == 'black')
+								//把單元格的字型變成紅色
+								this.style.color = 'red';
+							else
+								//把單元格的字型變成黑色
+								this.style.color = 'black';
+						};
+					}
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="chCell();">
+		<table id="tbl" align="center" border="1">
+			<tr>
+				<th>名字</th>
+				<th>年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

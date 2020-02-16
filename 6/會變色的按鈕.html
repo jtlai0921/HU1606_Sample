@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>會變色的按鈕</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			//起始化函數
+			function init(){		
+				//取得按鈕的DOM
+				var btn = document.getElementById('btn');
+				//監聽滑鼠移入事件
+				btn.onmouseover = function(){
+					//修改背景色為紅色
+					this.style.backgroundColor = 'red';
+				}
+				//監聽滑鼠移出事件
+				btn.onmouseout = function(){
+					//還原背景彩色
+					this.style.backgroundColor = '';
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="init()">		
+		<input type="button" value="按鈕" id="btn"/>
+	</body>
+</html>

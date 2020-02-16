@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>移除網頁文字節點</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//移除元素
+			function deleteElement(){
+				//取得準備移除的DOM
+				var del = document.getElementById("del");
+				//呼叫移除函數徹底移除
+				del.parentNode.removeChild(del);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<input type="button" value="移除元素" onclick="deleteElement();"/>
+		</p>
+		<!-- 定義被移除的元素 -->
+		<span id="del">即將本移除的DOM</span>
+	</body>
+</html>

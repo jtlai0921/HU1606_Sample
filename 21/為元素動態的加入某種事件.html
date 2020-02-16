@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為元素動態的加入某種事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(':button').click(function(){
+					alert(this.value + '被點擊了');
+				});
+			});
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form>
+			<input type="button" value="按鈕1"/>
+			<input type="button" value="按鈕2"/>
+		</form>		
+	</body>
+</html>

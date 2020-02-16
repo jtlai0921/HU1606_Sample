@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓頁面所有的超級連結都失效</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//讓頁面所有的超級連結都失效
+			function invaildLinks(){
+				//取得到所有的連結的DOM
+				var linkDOMS = document.getElementsByTagName("a");				
+				for(var i=0; i<linkDOMS.length; i++){	//檢查
+					var link = linkDOMS[i];		//目前的連結DOM
+					link.onclick = null;			//把點擊事件清空
+					link.href = 'javascript:void(0)';	//位址改成什麼都不做
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義連結 -->
+		<a href="#">連結一</a><br />
+		<a href="#">連結二</a><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="失效" id="myBtn" onclick="invaildLinks();"/>
+	</body>
+</html>

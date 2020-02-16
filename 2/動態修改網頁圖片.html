@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>修改元素的屬性值</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//修改圖片的寬度和高度屬性
+			function modifyWH(){
+				//得到元素DOM
+				var myImg = document.getElementById("myImg");
+				myImg.width = 300;			//增加寬度到300
+				myImg.height = 150;			//增加高度到150
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<p>
+			<input type="button" value="修改屬性" onclick="modifyWH();"/>
+		</p>
+		<!-- 定義圖片元素 -->
+		<img id="myImg" src="./1.jpg" width="200" height="100"/>
+	</body>
+</html>

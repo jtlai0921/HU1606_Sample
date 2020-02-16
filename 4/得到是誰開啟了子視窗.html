@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>得到是誰開啟了子視窗</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//得到是誰開啟了子視窗
+			function getParentWin(){
+				//使用提示框展示父視窗的body內容
+				alert(window.opener.document.body.innerHTML);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<input type="button" value="父視窗的文件內容" onclick="getParentWin();"/>
+	</body>
+</html>

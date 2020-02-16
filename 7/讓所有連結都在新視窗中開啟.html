@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>讓所有連結都在新視窗開啟</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//動態修改連結的開啟型態
+			function modifyOpenType(){
+				//取得到所有連結的DOM
+				var linkDOMS = document.getElementsByTagName("a");				
+				for(var i=0; i<linkDOMS.length; i++){	//檢查
+					var link = linkDOMS[i];		//目前的連結DOM
+					link.target = "_blank";		//在新視窗中開啟
+				}
+			}
+		</script>
+	</head>
+	<body style="text-align:center;">
+		<!-- 定義連結 -->
+		<a href="#">連結一</a><br />
+		<a href="#">連結二</a><br /><br />
+		<!-- 定義按鈕 -->
+		<input type="button" value="修改開啟模式" id="myBtn" onclick="modifyOpenType();"/>
+	</body>
+</html>

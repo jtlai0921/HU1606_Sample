@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為圖片加上邊框</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function addBorder(color){	
+				var pics = document.getElementsByTagName('IMG');
+				for(var i=0;i<pics.length;i++){
+					pics[i].style.border = '1px solid ' + color;
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<p>
+			<input type="button" value="藍色邊框" onclick="addBorder('blue');"/>
+			<input type="button" value="紅色邊框" onclick="addBorder('red');"/>
+		</p>
+		<img src="1.jpg"/>
+	</body>
+</html>

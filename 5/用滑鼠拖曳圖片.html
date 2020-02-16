@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用滑鼠拖曳圖片</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script language="javascript" type="text/javascript">
+			function dragPic(e){
+				var e = e || window.event;				//取得真實的事件變數
+				var myElement = e.srcElement || e.target; //取得事件的源DOM
+				if(e.preventDefault)
+					e.preventDefault();				//避免預設的事件處理
+				else 
+					//若果沒有preventDefault則把傳回值為false
+					e.returnvalue = false;
+				var mypic = document.getElementById("mypic"); 
+				mypic['draging'] = true;				//設定拖曳屬性為true
+				//計算得到拖曳以前的圖片距離左上角點的left和top的值
+				var relLeft = e.clientX - parseInt(myElement.style.left);
+				var relTop = e.clientY - parseInt(myElement.style.top);
+				//當滑鼠放開時，則停止拖曳
+				myElement.onmouseup = function(){ 
+					mypic['draging'] = false;			//設定拖曳屬性為false
+				}
+				//定義滑鼠的搬移事件，注意這裡是document的，
+				//表示圖片的整個網頁裡的滑鼠搬移
+				document.onmousemove = function(eMove){ 
+					//取得真實的時間變數
+					var eMove = eMove || window.event;
+					if(mypic['draging'] == true){		//若果處於正在拖曳中
+						//設定新的left的值，減去滑鼠點距左上角的距離
+						myElement.style.left = eMove.clientX - relLeft + "px";
+						//設定新的top的值，減去滑鼠點距左上角的距離
+						myElement.style.top = eMove.clientY - relTop + "px";
+						return false;
+					}
+				}
+			}
+			//當網頁載入好以後就為圖片拖曳定義事件
+			window.onload = function(){
+				//取得圖片的DOM
+				var mypic = document.getElementById("mypic"); 
+				//定義一個屬性用於儲存是否正在拖曳
+				mypic['draging'] = false;
+				//更具瀏覽器的不同，呼叫不同的加入事件監聽器
+				if(navigator.userAgent.indexOf("MSIE")>0){//ie
+					//為圖片定義滑鼠按下事件
+					mypic.attachEvent("onmousedown", dragPic);}
+				else{//非ie
+					//為圖片定義滑鼠按下事件
+					mypic.addEventListener("mousedown", dragPic, false);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 定義圖片 -->
+		<img id="mypic" style="left:10px;top:10px;position:absolute" src="1.jpg" />
+	</body>
+</html>

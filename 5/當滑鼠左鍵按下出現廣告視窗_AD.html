@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>當滑鼠左鍵按下出現廣告視窗</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//監聽按兩下事件
+			function defineClick(){
+				//定義出現視窗函數
+				document.onclick = function(){
+					//以全螢幕的模式開啟廣告視窗
+					window.open('當滑鼠左鍵按下出現廣告視窗_ad.html',
+					'這是我的廣告視窗','fullscreen=1');
+				}
+			}
+		</script>
+	</head>
+	<body onload="defineClick();">
+		<!-- 定義標簽 -->
+		<p align="center">點擊螢幕任意位置</p>
+	</body>
+</html>

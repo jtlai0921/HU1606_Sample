@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用Dojo隱退圖片</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js"></script>
+		<script type="text/javascript">
+			dojo.require("dojo.fx"); 	//加入必需的模組
+			//利用dojo的網頁載入完成回調函數
+			dojo.addOnLoad(function () {
+				//網頁載入完成5秒以後開始執行
+				setTimeout(function(){
+					dojo.fadeOut({     	//呼叫fadeOut函數
+						node: "myimg", 	//目的的DOM的id
+						duration: 2000,	//持續時間，毫秒  
+						delay: 250    	//延遲執行，毫秒
+					}).play();			//play函數開始執行
+				}, 5000);				//5秒
+			});
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<img id="myimg" src="1.jpg"/>
+	</body>
+</html>

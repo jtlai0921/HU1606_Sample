@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>由左向右的卷動廣告</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			var timer = null;				//定時器
+			//頁面載入完成的事件回調
+			function init(){
+				var time = 30;				//定義卷動的時間間隔，毫秒
+				//取得容器的DOM
+				var con_ul = document.getElementById('con_ul');				
+				function MyMarquee(){	
+					//卷動條的位置往左邊搬移一個像素
+					var left = con_ul.style.left;//得到目前的座標座標
+					left = parseInt(left);		//得到數字的值
+					con_ul.style.left = (left-1)+'px';//把左座標向左搬移
+					//若果搬移到了頭
+					if(left*-2 == parseInt(con_ul.style.width)){
+						con_ul.innerHTML += con_ul.innerHTML;//自我內容覆制一份
+					}
+				}
+				timer = setInterval(MyMarquee,time);//開始一個定時執行
+				con_ul.onmouseover=function() {	//定義滑鼠放上事件
+					clearInterval(timer);			//結束卷動
+				}
+				con_ul.onmouseout=function() {	//定義滑鼠移出事件
+					timer=setInterval(MyMarquee,time);//再次開始
+				}
+			}			
+		</script>	
+		<style>
+			#container li{
+				overflow: hidden; 
+				float: left; 
+				margin: 0 5px;
+			}
+		</style>
+	</head>
+	<body style="text-align:center" onload="init();">
+	<div id="container" style="width:800px;visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px;">
+		<ul id="con_ul" style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; width: 3886px; left: 0px;">
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+			<li><a target="_blank" href="#"><img src="1.jpg"><br>123123</a></li>
+		</ul>
+	</div>
+	</body>
+</html>

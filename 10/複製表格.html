@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>複製表格</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			var hasHide = false;				//起始化是沒有隱藏的
+			//複製表格的函數
+			function copyTbl(){
+				//取得DOM
+				var tbl = document.getElementById('tbl');
+				t = document.createElement('table');//建立一個表格元素
+				t.align = tbl.align;			//複製tbl的對齊屬性
+				t.border = tbl.border;			//複製tbl的邊框屬性
+				t.innerHTML = tbl.innerHTML;	//複製tbl的完整的標簽和內容
+				document.body.appendChild(t);	//掛上新建立的元素到body尾部
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<label>按兩下標頭複製一個相同的表格出來</label>
+		<table id="tbl" align="center" border="1">
+			<tr onclick="copyTbl();">
+				<th>名字</th>
+				<th>年齡</th>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</body>
+</html>

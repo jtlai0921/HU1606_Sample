@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>開啟一個新的視窗</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			//開啟一個新的視窗
+			function openNewWin(){
+				//使用window的open()函數開啟一個子視窗
+				var win = window.open("subWindow.html");
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<input type="button" value="開啟一個新的視窗" onclick="openNewWin();"/>
+	</body>
+</html>

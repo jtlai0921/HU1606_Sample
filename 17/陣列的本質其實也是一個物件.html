@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>陣列的本質其實也是一個物件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">	
+			var arr = new Array();		//建立一個陣列
+			var obj = new Object();		//建立一個物件
+			arr[0] = 1;					//為陣列給予值1，2，3
+			arr[1] = 2;
+			arr[2] = 3;
+			for(var i=0;i<arr.length;i++){//檢查列印陣列的值
+				alert(i+':'+arr[i]);
+			}
+			obj['0'] = 1;				//為陣列給予值1，2，3，索引與陣列相同
+			obj['1'] = 2;
+			obj['2'] = 3;
+			for(var prop in obj){		//根據物件的屬性進行檢查
+				alert(prop+':'+obj[prop]);
+			}
+		</script>
+	</head>
+	<body style="text-align:center">		
+	</body>
+</html>

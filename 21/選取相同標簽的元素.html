@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>選取相同標簽的元素</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function selAll(){
+				alert('本網頁總元素的個數是：' + $('a').length);
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<span>文字</span>
+		<a href="#">連結1</a>
+		<a href="#">連結2</a>
+		<a href="#">連結3</a>
+		<br>
+		<input type="button" value="一共有多少連結" onclick="selAll();"/>
+	</body>
+</html>

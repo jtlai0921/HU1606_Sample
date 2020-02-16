@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>確保網頁只能被框架載入</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			function init(){						//起始化函數
+				if(top == self){					//判斷目前區域是否為頂層視窗
+					alert("本網頁只能在框架內載入");//提示只能在框架內載入的
+					//覆蓋原有的網頁內容，改為提示內容
+					document.body.innerHTML = '<h2>本網頁只能在框架內載入</h2>';
+					window.close();					//關閉視窗
+				}
+			}
+		</script>	
+	</head>
+	<body style="text-align:center" onload="init();">
+		網頁內容。。。
+	</body>
+</html>

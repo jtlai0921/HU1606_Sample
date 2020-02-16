@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>輕松實現層的拖曳功能</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--  引入必要的js和css檔案 -->
+		<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+		<script src="jquery-1.9.1.js"></script>
+		<script src="ui/jquery.ui.core.js"></script>
+		<script src="ui/jquery.ui.widget.js"></script>		
+		<script src="ui/jquery.ui.mouse.js"></script>
+		<script src="ui/jquery.ui.draggable.js"></script>
+		<link rel="stylesheet" href="demos.css">
+		<script language="javascript">
+			//jquery的網頁載入完成回調函數
+			$(function() {
+				$("#my_draggable").draggable();//一句程式碼實現可拖曳
+			});
+		</script>
+		<style>
+			#my_draggable{
+				width: 200px;
+				height: 100px;
+			}
+		</style>
+    </head>
+    <body>
+		<label>請拖曳：</label><br>
+		<div id="my_draggable" class="ui-widget-content">
+			<p>Drag me around</p>
+		</div>
+    </body>
+</html>

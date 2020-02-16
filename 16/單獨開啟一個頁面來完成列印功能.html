@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>單獨開啟一個頁面來完成列印功能</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">		
+			function doPrint(){
+				window.open('print.html');
+			}
+		</script>	
+	</head>
+	<body style="text-align:center">
+		<form>
+			<label>姓名:</label>
+			<input name="the_name" type="text"/>
+			<br>
+			<label>年齡:</label>
+			<input name="age" type="text"/>
+			<br>
+			<label>性別:</label>
+			<input name="gender" type="text"/>
+			<br>
+			<input type="button" onclick="doPrint();" value="列印"/>
+		</form>
+	</body>
+</html>

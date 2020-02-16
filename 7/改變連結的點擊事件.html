@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>改變連結的點擊事件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">			
+			//自訂click事件
+			function defineLinkClick(){
+				//獲得連結的DOM
+				var myLink = document.getElementById("myLink");				
+				myLink.onclick = function(){		//定義click事件
+					alert('連結被點擊了。');		//事件的內容邏輯
+					return false;				//傳回
+				};
+			}
+		</script>
+	</head>
+	<body onload="defineLinkClick();" style="text-align:center;">
+		<!-- 定義連結 -->
+		<a href="#" id="myLink">一個連結</a>
+	</body>
+</html>

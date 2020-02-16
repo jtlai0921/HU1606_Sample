@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>三級導覽選單</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			//使用jquery的載入回調函數開始定義選單的功能
+			$(function(){
+				var menus = $('.menu a');		//得到選單下所有的連結
+				for(var i=0;i<menus.length;i++){//檢查這些連結
+					var m = menus[i];			//得到目前的連結
+					$(m).mouseover(function(){	//為選單連結定義onmouover事件
+						//得到目前滑鼠移入的選單項的索引
+						var index = $('.menu a').index(this);
+						$('.sub_menu').hide();	//把其他二級選單隱藏
+						$('.third_menu').hide();//三級也隱藏
+						$('.sub_menu').eq(index).show();//顯示對應的二級選單
+						//計算二級選單應該定位的位置
+						$('.sub_menu').eq(index).css('margin-left',(100*index)+'px');
+					});
+				}
+				//為包括第三級選單的二級選單定義onmouseover事件
+				$('.sub').mouseover(function(){
+					//得到它的class屬性
+					var className = $(this).attr('class');
+					//得到第三級選單的id值
+					var subId = className.split(' ')[1];
+					$('#'+subId).show();		//顯示第三級選單
+					var index = $(this).attr('index');//得到它的索引
+					//計算第三級選單顯示的座標位置
+					$('#'+subId).css('margin-top',(parseInt(index)*20)+'px');
+				});
+			});
+		</script>	
+		<style>
+			.menu{
+				list-style: none;
+				width: 500px;
+				margin: 10px auto 0;
+				padding:0;
+			}
+			.menu li{
+				float:left;
+				width:98px;
+				border:1px solid black;
+			}
+			.menu a{
+				color:black;
+				width:100%;
+			}
+			.menu a:hover{
+				background-color:pink;
+			}
+			.clearfix:after {
+				visibility: hidden;
+				display: block;
+				font-size: 0;
+				content: " ";
+				clear: both;
+				height: 0;
+			}
+			.sub_menu{
+				border:1px solid black;
+				width: 100px;
+				padding:0;
+				display: none;
+				margin:0;
+				float:left;
+			}
+			.sub_div{
+				width: 505px;
+				margin: 0 auto;
+			}
+			.third_menu{
+				display:none;
+				float: left;
+				border:1px solid black;
+				width: 100px;
+				padding:0;
+				margin:0;
+			}
+		</style>
+	</head>
+	<body style="text-align:center">
+		<ul class="menu clearfix">
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+			<li><a href="#">選單</a></li>
+		</ul>
+		<div class="sub_div clearfix">
+			<ul class="sub_menu">
+				<li><a href="#" class="sub sub_1" index="0">選單</a></li>
+			</ul>
+			<ul class="third_menu" id="sub_1">
+				<li><a href="#">選單</a></li>
+				<li><a href="#">選單</a></li>
+			</ul>
+			<ul class="sub_menu">
+				<li><a href="#">選單</a></li>
+				<li><a href="#">選單</a></li>
+			</ul>
+			<ul class="sub_menu">
+				<li><a href="#">選單</a></li>
+			</ul>
+			<ul class="sub_menu">
+				<li><a href="#">選單</a></li>
+				<li><a href="#" class="sub sub_2" index="1">選單</a></li>
+				<li><a href="#">選單</a></li>
+			</ul>
+			<ul class="third_menu" id="sub_2">
+				<li><a href="#">選單</a></li>
+				<li><a href="#">選單</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

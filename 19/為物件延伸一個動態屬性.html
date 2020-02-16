@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>為物件延伸一個動態屬性</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">
+			var obj = {};			//目的物件
+			//延伸函數
+			function ext(){			
+				//得到使用者需要特殊的屬性的名字
+				var propName = document.getElementById('text').value;
+				//得到實際的值
+				var propVal = document.getElementById('text2').value;
+				obj[propName] = propVal;
+			}
+			//執行函數
+			function fun(){
+				//取得屬性名
+				var propName = document.getElementById('text').value;
+				alert(obj[propName]);	//展示結果
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		屬性名：
+		<input value="" type="text" id="text" /><br><br>
+		屬性值：
+		<input value="" type="text2" id="text2" /><br><br>
+		<input value="延伸" type="button" onclick="ext()"/>
+		<input value="展示其值" type="button" onclick="fun()"/>
+	</body>
+</html>

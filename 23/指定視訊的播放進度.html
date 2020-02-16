@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>指定視訊的播放進度</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript">			
+			//播放/暫停，采用同一個方法實現
+			function playPause(){ 
+				//取得視訊DOM元素
+				var myVideo = document.getElementById("myVideo"); 
+				if (myVideo.paused)		//判斷目前是否處於暫停狀態
+				  myVideo.play();		//呼叫play()方法開發播放
+				else 
+				  myVideo.pause();		//呼叫pause()方法暫停視訊播放
+			}
+			//從中間開始播放
+			function playInMid(){ 
+				//取得視訊DOM元素
+				var myVideo = document.getElementById("myVideo"); 
+				//得到視訊的總時長
+				var duration = myVideo.duration;
+				//得到目前的進度
+				var currentTime = myVideo.currentTime;
+				//判斷是否暫停中
+				if (!myVideo.paused) 
+				  myVideo.pause(); 
+				//從總時長的一半的位置開始播放
+				myVideo.currentTime = duration / 2;
+				//繼續播放視訊
+				myVideo.play();
+			}
+		</script>
+	</head>
+	<body style="text-align:center">
+		<!-- HTML5新增的video標簽，用於在網頁裡內嵌可以播放的視訊 -->
+		<video width="320" height="240" controls="controls" id="myVideo">
+			<!-- 提供了兩種格式的視訊檔案，以適應不同瀏覽器對video的支援 -->
+			<source src="movie.mp4" type="video/mp4" />
+			<source src="movie.ogg" type="video/ogg" />
+			對不起，您的瀏覽器暫不支援video視訊標簽!
+		</video>
+		<br/>
+		<input type="button" value="從頭播放" onclick="playPause();"/>
+		<input type="button" value="從中間播放" onclick="playInMid();"/>
+	</body>
+</html>
